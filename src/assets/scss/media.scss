@@ -1,0 +1,236 @@
+@media screen and(max-width: 861px) {
+  .ba-desc {
+    .ba-comment {
+      &__title {
+        text-align: center;
+
+        &--quotes {
+          margin-top: 20px;
+        }
+      }
+
+      &__text {
+        margin-bottom: 10px;
+      }
+
+      &-card {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        &__image {
+          width: 100%;
+          max-width: 200px;
+          margin: 0 auto 10px;
+        }
+
+        .ba-comment-text {
+          &__item {
+            &:first-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        br {
+          display: none;
+        }
+      }
+    }
+
+    .ba-form {
+      &-title {
+        text-align: center;
+      }
+
+      &__title {
+        text-align: center;
+      }
+
+      &-input {
+        &-wrapp {
+          flex-direction: column;
+
+          &:last-child {
+            margin-bottom: 20px;
+          }
+
+          .ba-form-input__item {
+            width: 100%;
+            max-width: 310px;
+            margin: 0 auto 10px;
+          }
+        }
+      }
+
+      &-calendar {
+        &-wrapp {
+          flex-direction: column;
+          justify-content: center;
+
+          .ba-form-calendar__item {
+            margin-top: 10px;
+            margin-left: 0 !important;
+
+            &:last-child {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+
+      &-radio {
+        justify-content: center;
+      }
+
+      &-area {
+        &__item {
+          min-height: 130px;
+        }
+      }
+    }
+  }
+
+  // pages tours section ba-tours
+
+  .ba-col-sm-6 {
+    width: 50%;
+
+    .ba-tours-info {
+      bottom: 33%;
+    }
+  }
+}
+
+@media screen and (max-width: 733px) {
+  .ba-news {
+    .ba-col-xs-12 {
+      width: 100%;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &-info {
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  // page card section card
+  .ba-row-center {
+    justify-content: center;
+
+    .ba-col-xs-12 {
+      width: 60%;
+      margin-bottom: 30px;
+    }
+  }
+
+  // pages country
+  .ba-offers {
+    .ba-col-sm-12 {
+      width: 100%;
+
+      &:first-child {
+        margin-bottom: 50px;
+      }
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &-choice {
+      &__title {
+        text-align: center;
+      }
+
+      &__search {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.825rem;
+      }
+    }
+
+    &-country {
+      display: flex;
+      flex-wrap: wrap;
+
+      &__item {
+        margin-right: 30px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 661px) {
+  .ba-footer-wrapp {
+    flex-direction: column;
+
+    &-license {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+
+  // pages blog section blog
+  .ba-blog {
+    .ba-col-sm-12 {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &-posts {
+      &:last-child {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 550px) {
+  // pages tours section ba-tours
+
+  .ba-col-sm-6 {
+    width: 100%;
+  }
+}
+
+@media screen and(max-width: 510px) {
+  // pages about section news
+  .ba-col-sm-12 {
+    width: 100%;
+
+    .ba-comment {
+      margin-top: 50px;
+      .ba-comment-card {
+        &__image {
+          max-width: 320px;
+        }
+      }
+
+      &-text {
+        text-align: center;
+      }
+
+      &__text {
+        text-align: center;
+
+        &--textAlign {
+          text-align: left;
+        }
+      }
+
+      .ba-comment-card-desc__link {
+        justify-content: center;
+      }
+    }
+  }
+}
