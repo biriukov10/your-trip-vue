@@ -1,5 +1,6 @@
 <template>
   <main>
+    <slick-slider></slick-slider>
     <app-card></app-card>
     <app-booking></app-booking>
     <news-date></news-date>
@@ -10,6 +11,7 @@
 import Card from "../components/Card";
 import Booking from "../components/Booking.vue";
 import News from "../components/News";
+import Slider from "../components/Slider";
 export default {
   data() {
     return {};
@@ -17,10 +19,11 @@ export default {
   components: {
     appCard: Card,
     appBooking: Booking,
-    newsDate: News
+    newsDate: News,
+    slickSlider: Slider
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>

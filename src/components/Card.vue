@@ -61,6 +61,7 @@ export default {
   position: relative;
   bottom: 56px;
   overflow: hidden;
+  z-index: 1;
 
   &-wrapp {
     position: relative;
