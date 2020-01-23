@@ -134,11 +134,6 @@ export default {
       top: 50px;
       font-size: 0.875rem;
       color: rgb(235, 31, 31);
-
-      &--email {
-        left: 0;
-        top: 126px;
-      }
     }
   }
 
@@ -159,6 +154,10 @@ export default {
       &:active,
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      }
+
+      &.invalid {
+        box-shadow: 0 0 5px rgb(235, 31, 31);
       }
     }
 
