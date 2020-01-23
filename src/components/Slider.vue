@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     // Иницилизация слайдера
-    initSlider: function() {
+    initSlider() {
       // Получаем элементы сладера и его слайдов
       let sliderBody = this.$el.querySelector(".js-slider");
       let sliderSlidies = sliderBody.querySelectorAll(".js-slide");
@@ -73,7 +73,7 @@ export default {
       this.sliderAllCount = sliderSlidies.length;
     },
 
-    openSlide: function(id) {
+    openSlide(id) {
       if (id > 0 && id <= this.sliderAllCount) {
         this.sliderActive = id;
         // Сдвигаем элемент со слайдами
@@ -84,14 +84,14 @@ export default {
       }
     },
     // Следующий слайд
-    nextSlide: function() {
+    nextSlide() {
       if (this.sliderActive < this.sliderAllCount) {
         this.sliderActive += 1;
         this.openSlide(this.sliderActive);
       }
     },
     // Предыдущий слайд
-    prevSlide: function() {
+    prevSlide() {
       if (this.sliderActive > 1) {
         this.sliderActive -= 1;
         this.openSlide(this.sliderActive);
@@ -201,6 +201,7 @@ $slide-width: 100%;
           text-align: center;
           font-size: 1.375rem;
           color: #dad7d7;
+          text-transform: uppercase;
 
           .size {
             font-weight: 400;
@@ -210,12 +211,13 @@ $slide-width: 100%;
 
         &__link {
           display: block;
-          background-color: #e85252;
-          color: #fff;
+          background-color: #dad7d7;
+          color: #e85252;
           margin-top: 40px;
           padding: 13px 45px;
           border-radius: 30px;
           border: 1px solid transparent;
+          text-transform: uppercase;
 
           &:active,
           &:focus {
@@ -223,9 +225,9 @@ $slide-width: 100%;
           }
 
           &:hover {
-            background-color: #dad7d7;
-            color: #e85252;
-            border-color: #e85252;
+            background-color: #e85252;
+            color: #dad7d7;
+            border-color: #dad7d7;
           }
         }
 

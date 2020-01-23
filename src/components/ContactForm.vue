@@ -1,60 +1,80 @@
 <template>
-  <section>
-    <form class="ba-contact-form">
-      <fieldset class="ba-contact-form-title">
-        <legend class="ba-contact-form-title__item">GET IN TOUCH</legend>
-      </fieldset>
-      <div class="ba-contact-form-input">
-        <input
-          v-for="(item, index) in input"
-          :key="index"
-          :type="item.type"
-          class="ba-contact-form-input__item"
-          :placeholder="item.placeholder"
-          required
-        />
-      </div>
-      <div class="ba-contact-form-area">
-        <textarea class="ba-contact-form-area__item"></textarea>
-      </div>
-      <div class="ba-contact-form-btn">
-        <button
-          v-for="(item, index) in button"
-          :key="index"
-          class="ba-contact-form-btn__item"
-        >{{ item.text }}</button>
-      </div>
-    </form>
-  </section>
+  <form class="ba-contact-form" @submit.prevent="onSubmit">
+    <fieldset class="ba-contact-form-title">
+      <legend class="ba-contact-form-title__item">GET IN TOUCH</legend>
+    </fieldset>
+    <div class="ba-contact-form-input">
+      <!-- start input name -->
+      <input type="text" class="ba-contact-form-input__item" placeholder="Name:" />
+
+      <!-- end input name -->
+      <!-- start input email -->
+      <input
+        type="email"
+        class="ba-contact-form-input__item"
+        placeholder="Email:"
+        v-model.trim="email"
+        :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+      />
+      <small
+        class="ba-contact-form-input__invalid ba-contact-form-input__invalid--email invalid"
+        v-if="$v.email.$dirty && !$v.email.required"
+      >Do not leave the field blank</small>
+      <small
+        class="ba-contact-form-input__invalid invalid ba-contact-form-input__invalid--email invalid"
+        v-else-if="$v.email.$dirty && !$v.email.email"
+      >Enter the correct email</small>
+      <!-- end input email -->
+    </div>
+    <div class="ba-contact-form-area">
+      <textarea
+        class="ba-contact-form-area__item"
+        v-model.trim="name"
+        :class="{invalid: ($v.name.$dirty && !$v.name.required) || ($v.name.$dirty && !$v.name.minLength)}"
+      ></textarea>
+      <small
+        class="ba-contact-form-area__invalid invalid"
+        v-if="$v.name.$dirty && !$v.name.required"
+      >Enter a name</small>
+      <small
+        class="ba-contact-form-area__invalid invalid"
+        v-else-if="$v.name.$dirty && !$v.name.minLength"
+      >Name must be {{ $v.name.$params.minLength.min }} characters. {{ name.length }}</small>
+    </div>
+    <div class="ba-contact-form-btn">
+      <button class="ba-contact-form-btn__item">Clear</button>
+      <button class="ba-contact-form-btn__item" type="submit">Submit</button>
+    </div>
+  </form>
 </template>
 
 <script scoped>
+import { email, required, minLength } from "vuelidate/lib/validators";
 export default {
+  name: "formComponent",
   data() {
     return {
-      input: [
-        {
-          type: "text",
-          placeholder: "Name:"
-        },
-        {
-          type: "email",
-          placeholder: "Email:"
-        },
-        {
-          type: "text",
-          placeholder: "Country:"
-        }
-      ],
-      button: [
-        {
-          text: "Clear"
-        },
-        {
-          text: "Submit"
-        }
-      ]
+      email: "",
+      name: ""
     };
+  },
+  validations: {
+    email: { email, required },
+    name: { required, minLength: minLength(20) }
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.$v.name);
+      if (this.$v.$invalid) {
+        this.$v.$touch();
+        return;
+      }
+      const formData = {
+        email: this.email,
+        name: this.name
+      };
+      console.log(formData);
+    }
   },
   components: {}
 };
@@ -64,7 +84,7 @@ export default {
 .ba-contact-form {
   &-title {
     border: none;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
     &__item {
       font-size: 1.875rem;
       color: #002747;
@@ -76,34 +96,61 @@ export default {
   }
 
   &-input {
-    margin-bottom: 27px;
+    position: relative;
+    margin-bottom: 30px;
 
     &__item {
       width: 100%;
-      padding: 10px 20px;
+      padding: 15px 20px;
       background-color: #f0f3f5;
+      border-radius: 5px;
       font-size: 0.875rem;
       color: #737272;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
 
-      &:last-child {
+      &:nth-child(2) {
         margin-bottom: 0;
+      }
+
+      &.invalid {
+        box-shadow: 0 0 5px rgb(235, 31, 31);
       }
 
       &:active,
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
+
+      @media screen and(max-width: 731px) {
+        &:last-child {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &__invalid {
+      position: absolute;
+      left: 0;
+      top: 50px;
+      font-size: 0.875rem;
+      color: rgb(235, 31, 31);
+
+      &--email {
+        left: 0;
+        top: 126px;
+      }
     }
   }
 
   &-area {
+    position: relative;
     margin-bottom: 40px;
 
     &__item {
       width: 100%;
-      height: 287px;
+      height: 300px;
       background-color: #f0f3f5;
+      border-radius: 5px;
       color: #737272;
       padding: 13px 20px;
       font-size: 0.875rem;
@@ -113,6 +160,14 @@ export default {
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
+    }
+
+    &__invalid {
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      font-size: 0.875rem;
+      color: rgb(235, 31, 31);
     }
   }
 
