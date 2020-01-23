@@ -55,6 +55,8 @@ export default {
 
 <style lang="scss">
 .ba-contact {
+  padding: 110px 0 120px;
+
   .ba-contact-info {
     &__title {
       font-size: 1.875rem;

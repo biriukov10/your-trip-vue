@@ -1,5 +1,6 @@
 <template>
   <main class="ba-main">
+    <nav-logo></nav-logo>
     <div class="container">
       <div class="ba-row">
         <div class="ba-col-6 ba-col-sm-12">
@@ -16,21 +17,22 @@
 <script>
 import ContactInfo from "../components/ContactInfo";
 import ContactForm from "../components/ContactForm";
+import NavLogo from "../components/NavLogo";
+
 export default {
   data() {
     return {};
   },
   components: {
     sectionContact: ContactInfo,
-    contactForm: ContactForm
+    contactForm: ContactForm,
+    NavLogo
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .ba-main {
-  padding: 110px 0 115px;
-
   .right {
     margin-right: 5vw;
   }
@@ -42,8 +44,6 @@ export default {
 
 @media screen and(max-width: 731px) {
   .ba-main {
-    padding: 30px 0;
-
     .ba-col-sm-12 {
       width: 100%;
 

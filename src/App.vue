@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <app-nav></app-nav>
-    <!-- <about-pages></about-pages> -->
     <router-view></router-view>
-    <!-- <offers-pages></offers-pages> -->
     <app-footer></app-footer>
   </div>
 </template>

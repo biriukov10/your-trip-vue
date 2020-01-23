@@ -29,17 +29,17 @@
     <div class="ba-contact-form-area">
       <textarea
         class="ba-contact-form-area__item"
-        v-model.trim="name"
-        :class="{invalid: ($v.name.$dirty && !$v.name.required) || ($v.name.$dirty && !$v.name.minLength)}"
+        v-model.trim="text"
+        :class="{invalid: ($v.text.$dirty && !$v.text.required) || ($v.text.$dirty && !$v.text.minLength)}"
       ></textarea>
       <small
         class="ba-contact-form-area__invalid invalid"
-        v-if="$v.name.$dirty && !$v.name.required"
-      >Enter a name</small>
+        v-if="$v.text.$dirty && !$v.text.required"
+      >Enter a text</small>
       <small
         class="ba-contact-form-area__invalid invalid"
-        v-else-if="$v.name.$dirty && !$v.name.minLength"
-      >Name must be {{ $v.name.$params.minLength.min }} characters. {{ name.length }}</small>
+        v-else-if="$v.text.$dirty && !$v.text.minLength"
+      >Name must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
     </div>
     <div class="ba-contact-form-btn">
       <button class="ba-contact-form-btn__item">Clear</button>
@@ -55,23 +55,23 @@ export default {
   data() {
     return {
       email: "",
-      name: ""
+      text: ""
     };
   },
   validations: {
     email: { email, required },
-    name: { required, minLength: minLength(20) }
+    text: { required, minLength: minLength(20) }
   },
   methods: {
     onSubmit() {
-      console.log(this.$v.name);
+      console.log(this.$v.text);
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
       }
       const formData = {
         email: this.email,
-        name: this.name
+        text: this.text
       };
       console.log(formData);
     }
@@ -82,6 +82,8 @@ export default {
 
 <style lang="scss">
 .ba-contact-form {
+  padding: 110px 0 120px;
+
   &-title {
     border: none;
     margin-bottom: 30px;
@@ -131,7 +133,7 @@ export default {
     &__invalid {
       position: absolute;
       left: 0;
-      top: 50px;
+      top: 128px;
       font-size: 0.875rem;
       color: rgb(235, 31, 31);
     }
