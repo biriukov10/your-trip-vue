@@ -22,7 +22,9 @@
                   />
                 </div>
                 <div class="ba-form-input-wrapp">
-                  <input type="text" class="ba-form-input__item" placeholder="Country:" />
+                  <select name="country" class="ba-form-input__item">
+                    <option :value="item" v-for="(item, index) in country" :key="index">{{ item }}</option>
+                  </select>
                   <input type="text" class="ba-form-input__item" placeholder="Hotel:" />
                 </div>
               </div>
@@ -153,9 +155,13 @@
 </template>
 
 <script>
+import { country } from "../services/CountryService";
 export default {
   data() {
-    return {};
+    return {
+      search: "",
+      country
+    };
   }
 };
 </script>
