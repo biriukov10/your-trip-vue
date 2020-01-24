@@ -88,8 +88,8 @@ export default {
 
       this.name = this.email = this.text = "";
     },
-    // modalOpen() {
-    //   this.showModal = true;
+    // modalClose() {
+    //   this.showModal = false;
     // },
 
     onSubmit() {
@@ -113,6 +113,13 @@ export default {
     let thisModal = this;
     window.addEventListener("keydown", function(e) {
       if (e.keyCode == 27) {
+        thisModal.showModal = false;
+      }
+    });
+
+    window.addEventListener("click", function(e) {
+      let modal = document.querySelector(".modal-mask");
+      if (e.target == modal) {
         thisModal.showModal = false;
       }
     });

@@ -1,5 +1,5 @@
 <template>
-  <transition name="modal">
+  <transition class="modal" name="modal">
     <div class="modal-mask">
       <div class="modal-container">
         <div class="modal-text">
@@ -65,9 +65,9 @@ export default {
     transition: 0.3s;
 
     &:hover {
-      color: #e85252;
+      color: #fff;
       border-color: #e85252;
-      background-color: #fff;
+      background-color: rgb(248, 126, 126);
     }
   }
 }
