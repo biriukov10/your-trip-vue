@@ -6,7 +6,12 @@
       </fieldset>
       <div class="ba-contact-form-input">
         <!-- start input name -->
-        <input type="text" class="ba-contact-form-input__item" placeholder="Name:" />
+        <input
+          type="text"
+          class="ba-contact-form-input__item"
+          placeholder="Name:"
+          v-model.trim="name"
+        />
 
         <!-- end input name -->
         <!-- start input email -->
@@ -45,10 +50,10 @@
       </div>
       <div class="ba-contact-form-btn">
         <button @click="resetForm" class="ba-contact-form-btn__item" type="reset">Clear</button>
-        <button class="ba-contact-form-btn__item" type="submit">Submit</button>
+        <button @click="onSubmit" class="ba-contact-form-btn__item" type="submit">Submit</button>
       </div>
     </form>
-    <modal-window v-if="showModal" @close="showModal = false"></modal-window>
+    <modal-window class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
   </div>
 </template>
 
@@ -62,12 +67,13 @@ export default {
     return {
       email: "",
       text: "",
+      name: "",
       submitted: {
         name: "",
         email: "",
         text: ""
       },
-      showModal: true
+      showModal: false
     };
   },
   validations: {
@@ -75,8 +81,18 @@ export default {
     text: { required, minLength: minLength(20) }
   },
   methods: {
+    resetForm() {
+      this.submitted.name = this.name;
+      this.submitted.email = this.email;
+      this.submitted.text = this.text;
+
+      this.name = this.email = this.text = "";
+    },
+    // modalOpen() {
+    //   this.showModal = true;
+    // },
+
     onSubmit() {
-      console.log(this.$v.text);
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
@@ -85,16 +101,21 @@ export default {
         email: this.email,
         text: this.text
       };
+      setTimeout(() => {
+        this.showModal = true;
+        this.resetForm();
+      }, 700);
       console.log(formData);
-    },
-
-    resetForm() {
-      this.submitted.name = this.name;
-      this.submitted.email = this.email;
-      this.submitted.text = this.text;
-
-      this.name = this.email = this.text = "";
     }
+  },
+  mounted() {
+    // по нажатию на esc закрыть окно
+    let thisModal = this;
+    window.addEventListener("keydown", function(e) {
+      if (e.keyCode == 27) {
+        thisModal.showModal = false;
+      }
+    });
   },
   components: {
     modalWindow: Modal

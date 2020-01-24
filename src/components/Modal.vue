@@ -5,10 +5,7 @@
         <div class="modal-text">
           <slot name="text">Your application is completed, expect a response</slot>
         </div>
-
-        <!-- <slot name="footer"> -->
         <button class="modal-default-button" @click="$emit('close')">X</button>
-        <!-- </slot> -->
       </div>
     </div>
   </transition>
@@ -59,16 +56,19 @@ export default {
     position: absolute;
     padding: 5px 10px;
     border-radius: 5px;
+    color: #fff;
+    background-color: #e85252;
     cursor: pointer;
+    border: 1px solid transparent;
     top: 0;
     right: 0;
+    transition: 0.3s;
+
+    &:hover {
+      color: #e85252;
+      border-color: #e85252;
+      background-color: #fff;
+    }
   }
 }
-// .modal
-
-// .modal
-
-// .modal
-
-// .modal
 </style>
