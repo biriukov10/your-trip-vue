@@ -131,7 +131,7 @@
                 <img
                   src="https://i.ibb.co/0n7pWN2/clients-min.jpg"
                   alt="Miranda Brown"
-                  class="ba-comment-card__image"
+                  class="ba-comment-card__image ba-comment-card__image--bottom"
                 />
                 <div class="ba-comment-card-desc">
                   <blockquote

@@ -1,61 +1,73 @@
 <template>
-  <form class="ba-contact-form" @submit.prevent="onSubmit">
-    <fieldset class="ba-contact-form-title">
-      <legend class="ba-contact-form-title__item">GET IN TOUCH</legend>
-    </fieldset>
-    <div class="ba-contact-form-input">
-      <!-- start input name -->
-      <input type="text" class="ba-contact-form-input__item" placeholder="Name:" />
+  <div>
+    <form class="ba-contact-form" @submit.prevent="onSubmit">
+      <fieldset class="ba-contact-form-title">
+        <legend class="ba-contact-form-title__item">GET IN TOUCH</legend>
+      </fieldset>
+      <div class="ba-contact-form-input">
+        <!-- start input name -->
+        <input type="text" class="ba-contact-form-input__item" placeholder="Name:" />
 
-      <!-- end input name -->
-      <!-- start input email -->
-      <input
-        type="email"
-        class="ba-contact-form-input__item"
-        placeholder="Email:"
-        v-model.trim="email"
-        :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
-      />
-      <small
-        class="ba-contact-form-input__invalid ba-contact-form-input__invalid--email invalid"
-        v-if="$v.email.$dirty && !$v.email.required"
-      >Do not leave the field blank</small>
-      <small
-        class="ba-contact-form-input__invalid invalid ba-contact-form-input__invalid--email invalid"
-        v-else-if="$v.email.$dirty && !$v.email.email"
-      >Enter the correct email</small>
-      <!-- end input email -->
-    </div>
-    <div class="ba-contact-form-area">
-      <textarea
-        class="ba-contact-form-area__item"
-        v-model.trim="text"
-        :class="{invalid: ($v.text.$dirty && !$v.text.required) || ($v.text.$dirty && !$v.text.minLength)}"
-      ></textarea>
-      <small
-        class="ba-contact-form-area__invalid invalid"
-        v-if="$v.text.$dirty && !$v.text.required"
-      >Enter a text</small>
-      <small
-        class="ba-contact-form-area__invalid invalid"
-        v-else-if="$v.text.$dirty && !$v.text.minLength"
-      >Name must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
-    </div>
-    <div class="ba-contact-form-btn">
-      <button class="ba-contact-form-btn__item">Clear</button>
-      <button class="ba-contact-form-btn__item" type="submit">Submit</button>
-    </div>
-  </form>
+        <!-- end input name -->
+        <!-- start input email -->
+        <input
+          type="email"
+          class="ba-contact-form-input__item"
+          placeholder="Email:"
+          v-model.trim="email"
+          :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+        />
+        <small
+          class="ba-contact-form-input__invalid ba-contact-form-input__invalid--email invalid"
+          v-if="$v.email.$dirty && !$v.email.required"
+        >Do not leave the field blank</small>
+        <small
+          class="ba-contact-form-input__invalid invalid ba-contact-form-input__invalid--email invalid"
+          v-else-if="$v.email.$dirty && !$v.email.email"
+        >Enter the correct email</small>
+        <!-- end input email -->
+      </div>
+      <div class="ba-contact-form-area">
+        <textarea
+          class="ba-contact-form-area__item"
+          v-model.trim="text"
+          :class="{invalid: ($v.text.$dirty && !$v.text.required) || ($v.text.$dirty && !$v.text.minLength)}"
+          placeholder="Message:"
+        ></textarea>
+        <small
+          class="ba-contact-form-area__invalid invalid"
+          v-if="$v.text.$dirty && !$v.text.required"
+        >Enter a text</small>
+        <small
+          class="ba-contact-form-area__invalid invalid"
+          v-else-if="$v.text.$dirty && !$v.text.minLength"
+        >Name must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
+      </div>
+      <div class="ba-contact-form-btn">
+        <button @click="resetForm" class="ba-contact-form-btn__item" type="reset">Clear</button>
+        <button class="ba-contact-form-btn__item" type="submit">Submit</button>
+      </div>
+    </form>
+    <modal-window v-if="showModal" @close="showModal = false"></modal-window>
+  </div>
 </template>
 
 <script scoped>
 import { email, required, minLength } from "vuelidate/lib/validators";
+import Modal from "./Modal";
+
 export default {
   name: "formComponent",
   data() {
     return {
       email: "",
-      text: ""
+      text: "",
+      submitted: {
+        name: "",
+        email: "",
+        text: ""
+      },
+      showModal: true
     };
   },
   validations: {
@@ -74,9 +86,19 @@ export default {
         text: this.text
       };
       console.log(formData);
+    },
+
+    resetForm() {
+      this.submitted.name = this.name;
+      this.submitted.email = this.email;
+      this.submitted.text = this.text;
+
+      this.name = this.email = this.text = "";
     }
   },
-  components: {}
+  components: {
+    modalWindow: Modal
+  }
 };
 </script>
 
