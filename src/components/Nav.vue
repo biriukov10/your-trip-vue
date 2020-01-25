@@ -59,11 +59,11 @@ export default {
   .menu-show {
     position: absolute;
     display: none;
-    top: 5%;
+    top: 10px;
     right: 5%;
     font-size: 2.5rem;
-    color: #e85252;
-    z-index: 5;
+    color: #fff;
+    z-index: 15;
     cursor: pointer;
 
     @media screen and(max-width: 624px) {
@@ -108,6 +108,10 @@ export default {
         width: 1px;
         height: 100%;
         background-color: #b42d29;
+
+        @media screen and(max-width: 624px) {
+          position: relative;
+        }
       }
 
       &:last-child {
@@ -124,6 +128,10 @@ export default {
       }
       &:hover .ba-header-menu__title {
         transform: translateY(17px);
+
+        @media screen and(max-width: 624px) {
+          transform: translateY(35px);
+        }
       }
 
       @media screen and(max-width: 575px) {
@@ -147,6 +155,10 @@ export default {
         color: #fff;
         transform: translateY(-100%);
       }
+
+      @media screen and(max-width: 624px) {
+        font-size: 2rem;
+      }
     }
 
     &__title {
@@ -157,8 +169,13 @@ export default {
 
     @media screen and(max-width: 624px) {
       display: none;
+      width: 100%;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
     }
   }
+
   @media screen and(max-width: 624px) {
     position: relative;
   }

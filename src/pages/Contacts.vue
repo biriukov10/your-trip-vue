@@ -36,10 +36,6 @@ export default {
   .right {
     margin-right: 5vw;
   }
-
-  @media screen and(max-width: 731px) {
-    padding: 50px 0;
-  }
 }
 
 @media screen and(max-width: 731px) {
