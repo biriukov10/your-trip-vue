@@ -56,6 +56,9 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css");
+$primary-width: 100%;
+$font-weight: 400;
+$fonr-size: 0.875rem;
 
 .ba-card {
   position: relative;
@@ -73,15 +76,15 @@ export default {
     }
 
     &__image {
-      width: 100%;
-      height: 100%;
+      width: $primary-width;
+      height: $primary-width;
     }
 
     &::before {
       position: absolute;
       content: "";
-      width: 100%;
-      height: 100%;
+      width: $primary-width;
+      height: $primary-width;
       background-color: #000;
       opacity: 0.5;
     }
@@ -92,29 +95,29 @@ export default {
     }
 
     .ba-card-desc {
-      width: 100%;
+      width: $primary-width;
       position: absolute;
-      left: 50%;
-      bottom: 24%;
+      left: $primary-width - 50%;
+      bottom: $primary-width - 76%;
       transform: translateX(-50%);
       text-align: center;
       color: #fff;
       text-transform: uppercase;
 
-      font-weight: 400;
+      font-weight: $font-weight;
 
       &__title {
-        font-size: 1.875rem;
-        font-weight: 400;
+        font-size: $fonr-size + 1rem;
+        font-weight: $font-weight;
       }
 
       &__price {
-        font-size: 0.875rem;
+        font-size: $fonr-size;
       }
 
       &__link {
         display: inline-block;
-        font-size: 0.875rem;
+        font-size: $fonr-size;
         color: #e85252;
         margin-top: 30px;
         background-color: #dad7d7;
@@ -137,8 +140,8 @@ export default {
       }
 
       .size {
-        font-size: 1.5rem;
-        font-weight: 400;
+        font-size: $fonr-size + 0.625rem;
+        font-weight: $font-weight;
       }
     }
   }

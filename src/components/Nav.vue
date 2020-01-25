@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style lang="scss">
+$primary-color: #fff;
+$danger-color: #e85252;
+$primary-width: 100%;
+
 .head {
   position: relative;
 
@@ -62,7 +66,7 @@ export default {
     top: 10px;
     right: 5%;
     font-size: 2.5rem;
-    color: #fff;
+    color: $primary-color;
     z-index: 15;
     cursor: pointer;
 
@@ -74,13 +78,13 @@ export default {
 .ba-header {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: $primary-width - 50%;
   transform: translateX(-50%);
   z-index: 5;
 
   &-menu {
     display: flex;
-    background-color: #e85252;
+    background-color: $danger-color;
     border-radius: 0 0 7px 7px;
     box-shadow: inset 5px -23px 20px -30px #000000;
 
@@ -106,11 +110,13 @@ export default {
         top: 0;
         right: 0;
         width: 1px;
-        height: 100%;
-        background-color: #b42d29;
+        height: $primary-width;
+        background-color: darken($danger-color, 20);
 
         @media screen and(max-width: 624px) {
           position: relative;
+          width: $primary-width;
+          text-align: center;
         }
       }
 
@@ -130,6 +136,8 @@ export default {
         transform: translateY(17px);
 
         @media screen and(max-width: 624px) {
+          width: $primary-width;
+          text-align: center;
           transform: translateY(35px);
         }
       }
@@ -152,8 +160,8 @@ export default {
         left: 0;
         top: 0;
         transition: all 0.3s;
-        color: #fff;
-        transform: translateY(-100%);
+        color: $primary-color;
+        transform: translateY(-$primary-width);
       }
 
       @media screen and(max-width: 624px) {
@@ -169,7 +177,7 @@ export default {
 
     @media screen and(max-width: 624px) {
       display: none;
-      width: 100%;
+      width: $primary-width;
       height: 100vh;
       justify-content: center;
       align-items: center;

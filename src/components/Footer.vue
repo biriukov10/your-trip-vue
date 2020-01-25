@@ -42,10 +42,14 @@ export default {
 </script>
 
 <style lang="scss">
+$danger-color: #e85252;
+$light-color: #e5e5e5;
+$primary-pixel: 9px;
+
 .ba-footer {
   padding: 33px 0 31px;
   background-color: #002141;
-  color: #e5e5e5;
+  color: $light-color;
   overflow: hidden;
 
   &-wrapp {
@@ -57,7 +61,7 @@ export default {
       &__copyright {
         text-transform: uppercase;
         font-size: 0.625rem;
-        color: #a3afba;
+        color: darken($light-color, 20);
       }
     }
 
@@ -72,23 +76,23 @@ export default {
       }
 
       &__item {
-        padding: 9px 9px;
-        background-color: #e85252;
-        color: #e5e5e5;
-        border-radius: 5px;
+        padding: $primary-pixel;
+        background-color: $danger-color;
+        color: $light-color;
+        border-radius: $primary-pixel - 4px;
         transition: all 0.3s;
 
         &:hover {
-          color: #fff;
-          background-color: #e63131;
+          color: lighten($light-color, 90);
+          background-color: darken($danger-color, 20);
         }
 
         &--facebook {
-          padding: 9px 14px;
+          padding: $primary-pixel $primary-pixel + 5px;
         }
 
         &--twitter {
-          padding: 9px 11px;
+          padding: $primary-pixel $primary-pixel + 2px;
         }
       }
     }

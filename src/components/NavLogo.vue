@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
+$primary-width: 100%;
+
 .ba-header-logo {
   position: relative;
   overflow: hidden;
@@ -23,23 +25,23 @@ export default {
   &::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: $primary-width;
+    height: $primary-width;
     background-color: #000;
     opacity: 0.5;
   }
 
   &__image {
-    max-width: 100%;
-    height: 100%;
+    max-width: $primary-width;
+    height: $primary-width;
     object-fit: cover;
   }
 
   &__title {
     position: absolute;
-    top: 50%;
+    top: $primary-width - 50%;
     transform: translateY(-50%);
-    left: 43%;
+    left: $primary-width - 57%;
     transform: translateY(-50%);
     font-size: 2.25rem;
     text-transform: uppercase;
@@ -54,7 +56,7 @@ export default {
     }
 
     @media screen and(max-width: 624px) {
-      left: 35%;
+      left: $primary-width - 65%;
     }
   }
 }

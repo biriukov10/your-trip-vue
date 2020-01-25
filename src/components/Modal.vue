@@ -1,6 +1,6 @@
 <template>
   <transition class="modal" name="modal">
-    <div class="modal-mask">
+    <div class="modal-mask" ref="modal">
       <div class="modal-container">
         <div class="modal-text">
           <slot name="text">Your application is completed, expect a response</slot>
@@ -20,48 +20,54 @@ export default {
 </script>
 
 <style lang="scss">
+$center: center;
+$primary-width: 100%;
+$primary-pixel: 5px;
+$zero: 0;
+
 .modal {
   &-mask {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: $center;
+    align-items: $center;
     position: fixed;
     z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: $zero;
+    left: $zero;
+    width: $primary-width;
+    height: $primary-width;
     background-color: rgba(0, 0, 0, 0.5);
     transition: opacity 0.3s ease;
   }
 
   &-container {
     position: relative;
-    width: 100%;
+    width: $primary-width;
     max-width: 400px;
-    margin: 0px auto;
-    text-align: center;
+    margin: $zero auto;
+    text-align: $center;
     padding: 20px 30px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    border-radius: $primary-pixel;
+    box-shadow: $zero $primary-pixel - 3px $primary-pixel + 3px
+      rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
   }
 
   &-text {
-    margin: 40px 0;
+    margin: 40px $zero;
   }
 
   &-default-button {
     position: absolute;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: $primary-pixel $primary-pixel + 5px;
+    border-radius: $primary-pixel;
     color: #fff;
     background-color: #e85252;
     cursor: pointer;
     border: 1px solid transparent;
-    top: 0;
-    right: 0;
+    top: $zero;
+    right: $zero;
     transition: 0.3s;
 
     &:hover {

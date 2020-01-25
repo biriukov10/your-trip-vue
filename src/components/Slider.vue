@@ -113,6 +113,8 @@ export default {
 <style lang="scss">
 $slider-height: 774px;
 $slide-width: 100%;
+$zero: 0;
+
 .slider-container {
   position: relative;
 
@@ -124,21 +126,21 @@ $slide-width: 100%;
 
     &__btn {
       position: absolute;
-      width: 5%;
+      width: $slide-width - 95%;
       z-index: 1;
-      top: 0;
-      bottom: 0;
+      top: $zero;
+      bottom: $zero;
       background-color: #000;
       opacity: 0.5;
       transition: opacity 0.3s;
       cursor: pointer;
 
       &--prev {
-        left: 0;
+        left: $zero;
       }
 
       &--next {
-        right: 0;
+        right: $zero;
       }
 
       &:hover {
@@ -146,7 +148,7 @@ $slide-width: 100%;
       }
 
       @media screen and (max-width: 732px) {
-        width: 10%;
+        width: $slide-width - 90%;
       }
     }
 
@@ -170,13 +172,13 @@ $slide-width: 100%;
       height: $slider-height;
       background-size: cover;
       background-position: center;
-      flex: 1 100%;
+      flex: 1 $slide-width;
 
       &::before {
         position: absolute;
         content: "";
-        width: 100%;
-        height: 100%;
+        width: $slide-width;
+        height: $slide-width;
         background-color: #000;
         opacity: 0.5;
       }
@@ -232,7 +234,7 @@ $slide-width: 100%;
         }
 
         @media screen and (max-width: 732px) {
-          padding: 50px 0;
+          padding: 50px $zero;
         }
       }
     }

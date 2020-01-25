@@ -112,9 +112,13 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css");
+$primary-padding: 120px;
+$primary-width: 100%;
+$font-size: 1.5rem;
+$font-weight: 400;
 
 .ba-tours {
-  padding: 120px 0 120px;
+  padding: $primary-padding 0;
 
   &-card {
     position: relative;
@@ -123,14 +127,14 @@ export default {
     overflow: hidden;
 
     &__image {
-      width: 100%;
+      width: $primary-width;
     }
 
     &::before {
       position: absolute;
       content: "";
-      width: 100%;
-      height: 100%;
+      width: $primary-width;
+      height: $primary-width;
       background-color: #000;
       opacity: 0.5;
     }
@@ -150,31 +154,31 @@ export default {
       position: absolute;
       color: #fff;
       padding: 10px;
-      font-size: 0.875rem;
+      font-size: $font-size - 0.625rem;
       transition: 0.3s;
     }
 
     &:hover .ba-tours-card-desc {
-      transform: translateY(-100%);
+      transform: translateY(-$primary-width);
       padding: 20px 10px;
 
       @media screen and(max-width: 618px) {
-        font-size: 0.775rem;
+        font-size: $font-size - 0.725rem;
       }
 
       @media screen and(max-width: 550px) {
-        font-size: 1.125rem;
+        font-size: $font-size - 0.375rem;
       }
     }
     &:hover .ba-tours-info {
       transform: translateY(0);
 
       @media screen and(max-width: 1250px) {
-        transform: translateY(50%);
+        transform: translateY($primary-width - 50%);
       }
 
       @media screen and(max-width: 1000px) {
-        transform: translateY(30%);
+        transform: translateY($primary-width - 70%);
       }
 
       @media screen and(max-width: 910px) {
@@ -182,57 +186,57 @@ export default {
       }
 
       @media screen and(max-width: 860px) {
-        transform: translateY(50%);
+        transform: translateY($primary-width - 50%);
       }
 
       @media screen and(max-width: 683px) {
-        transform: translateY(30%);
+        transform: translateY($primary-width - 70%);
       }
 
       @media screen and(max-width: 618px) {
-        transform: translateY(10%);
-        font-size: 0.775rem;
+        transform: translateY($primary-width - 90%);
+        font-size: $font-size - 0.725rem;
       }
     }
   }
 
   &-info {
-    width: 100%;
+    width: $primary-width;
     position: absolute;
     top: 0;
-    transform: translateY(100%);
+    transform: translateY($primary-width);
     text-align: center;
     color: #fff;
     text-transform: uppercase;
     transition: 0.3s;
 
-    font-weight: 400;
+    font-weight: $font-weight;
 
     &__title {
-      font-size: 1.875rem;
-      font-weight: 400;
+      font-size: $font-size + 0.375rem;
+      font-weight: $font-weight;
 
       @media screen and(max-width: 550px) {
-        font-size: 2.5rem;
+        font-size: $font-size + 1rem;
       }
     }
 
     &__price {
-      font-size: 0.875rem;
+      font-size: $font-size - 0.625rem;
 
       .size {
-        font-size: 1.5rem;
-        font-weight: 400;
+        font-size: $font-size;
+        font-weight: $font-weight;
       }
 
       @media screen and(max-width: 550px) {
-        font-size: 1.5rem;
+        font-size: $font-size;
       }
     }
   }
 
   @media screen and(max-width: 550px) {
-    padding: 120px 30px 120px;
+    padding: $primary-padding 30px;
   }
 }
 </style>

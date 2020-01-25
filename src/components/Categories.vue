@@ -146,43 +146,47 @@ export default {
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css");
 $primary-color: #e5e5e5;
 $secondary-color: #737272;
-
+$danger-color: #e85252;
+$padding: 100px;
+$primaryFontSize: 1.125rem;
+$secondaryFontSize: 0.875rem;
+$uppercase: uppercase;
 .ba-blog {
-  padding: 130px 0 120px;
+  padding: $padding + 30px 0 $padding + 20px;
 
   &__title {
-    font-size: 1.875rem;
-    text-transform: uppercase;
+    font-size: $secondaryFontSize + 1rem;
+    text-transform: $uppercase;
     color: #002747;
   }
 
   &-posts {
-    margin-top: 10px;
+    margin-top: $padding - 90px;
     animation-duration: 0.8s;
 
     &:last-child {
-      margin-top: 80px;
+      margin-top: $padding - 20px;
 
       @media screen and(max-width: 661px) {
-        margin-top: 40px;
+        margin-top: $padding - 60px;
       }
     }
 
     &__text {
-      margin-top: 15px;
-      font-size: 0.875rem;
+      margin-top: $padding - 85px;
+      font-size: $secondaryFontSize;
       color: $secondary-color;
-      padding-right: 30px;
+      padding-right: $padding - 70px;
     }
 
     &__link {
       display: inline-block;
-      font-size: 0.875rem;
-      color: #c73430;
+      font-size: $secondaryFontSize;
+      color: $danger-color;
       padding: 8px 17px;
       background-color: $primary-color;
-      border-radius: 15px;
-      margin-top: 35px;
+      border-radius: $padding - 85px;
+      margin-top: $padding - 65px;
       border: 1px solid transparent;
       transition: 0.3s;
 
@@ -193,7 +197,7 @@ $secondary-color: #737272;
 
       &:hover {
         color: $primary-color;
-        background-color: #c73430;
+        background-color: $danger-color;
         border-color: $primary-color;
       }
     }
@@ -201,29 +205,29 @@ $secondary-color: #737272;
 
   &-date {
     display: flex;
-    margin-bottom: 28px;
+    margin-bottom: $padding - 72px;
 
     &-icon {
-      font-size: 1.125rem;
-      color: #fff;
-      text-transform: uppercase;
+      font-size: $primaryFontSize;
+      color: lighten($primary-color, 90);
+      text-transform: $uppercase;
       padding: 10px 18px;
-      border-radius: 15px;
-      background-color: #e24847;
+      border-radius: $padding - 85px;
+      background-color: $danger-color;
       text-align: center;
-      margin-right: 20px;
+      margin-right: $padding - 80px;
     }
 
     &-aftor {
       &__link {
         display: block;
-        text-transform: uppercase;
-        font-size: 1.125rem;
+        text-transform: $uppercase;
+        font-size: $primaryFontSize;
         color: #f3aa29;
       }
 
       &__text {
-        font-size: 0.875rem;
+        font-size: $secondaryFontSize;
         color: $secondary-color;
       }
     }
@@ -231,19 +235,19 @@ $secondary-color: #737272;
 
   &-categories {
     &__title {
-      font-size: 1.875rem;
-      text-transform: uppercase;
+      font-size: $secondaryFontSize + 1rem;
+      text-transform: $uppercase;
       color: #002747;
-      margin-bottom: 10px;
+      margin-bottom: $padding - 90px;
     }
   }
 
   &-accordion {
     &__title {
       position: relative;
-      font-size: 1.125rem;
+      font-size: $primaryFontSize;
       color: $secondary-color;
-      margin-bottom: 10px;
+      margin-bottom: $padding - 90px;
       cursor: pointer;
       user-select: none;
 
@@ -257,11 +261,11 @@ $secondary-color: #737272;
 
     &__desc {
       color: #272626;
-      font-size: 0.875rem;
-      margin-bottom: 10px;
+      font-size: $secondaryFontSize;
+      margin-bottom: $padding - 90px;
       background-color: rgb(184, 177, 177);
-      padding: 10px;
-      border-radius: 10px;
+      padding: $padding - 90px;
+      border-radius: $padding - 90px;
       overflow: hidden;
       animation-duration: 0.4s;
     }

@@ -56,11 +56,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$primary-count: 20px;
+
 .ba-news {
   &__title {
     font-size: 1.875rem;
     text-transform: uppercase;
-    margin-bottom: 32px;
+    margin-bottom: $primary-count + 12px;
     color: #002747;
   }
 
@@ -71,10 +73,10 @@ export default {
     &-icon {
       color: #fff;
       text-align: center;
-      padding: 7px 17px;
+      padding: 7px $primary-count - 3px;
       background-color: #e85252;
-      border-radius: 20px;
-      margin-right: 20px;
+      border-radius: $primary-count;
+      margin-right: $primary-count;
 
       &__day {
         position: relative;
@@ -94,8 +96,8 @@ export default {
 
       &__item {
         display: block;
-        width: 23px;
-        height: 18px;
+        width: $primary-count + 3px;
+        height: $primary-count - 2px;
         margin: 10px auto 0;
       }
     }

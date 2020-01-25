@@ -5,15 +5,12 @@
         <legend class="ba-contact-form-title__item">GET IN TOUCH</legend>
       </fieldset>
       <div class="ba-contact-form-input">
-        <!-- start input name -->
         <input
           type="text"
           class="ba-contact-form-input__item"
           placeholder="Name:"
           v-model.trim="name"
         />
-
-        <!-- end input name -->
         <!-- start input email -->
         <input
           type="email"
@@ -81,6 +78,7 @@ export default {
     text: { required, minLength: minLength(20) }
   },
   methods: {
+    // clear input
     resetForm() {
       this.submitted.name = this.name;
       this.submitted.email = this.email;
@@ -88,9 +86,6 @@ export default {
 
       this.name = this.email = this.text = "";
     },
-    // modalClose() {
-    //   this.showModal = false;
-    // },
 
     onSubmit() {
       if (this.$v.$invalid) {
@@ -116,7 +111,7 @@ export default {
         thisModal.showModal = false;
       }
     });
-
+    // по клику вне модалки закрыть её
     window.addEventListener("click", function(e) {
       let modal = document.querySelector(".modal-mask");
       if (e.target == modal) {
@@ -131,14 +126,20 @@ export default {
 </script>
 
 <style lang="scss">
+$padding: 100px;
+$font-size: 0.875rem;
+$primary-width: 100%;
+$primary-color: #f0f3f5;
+$secondary-color: #737272;
+
 .ba-contact-form {
-  padding: 110px 0 120px;
+  padding: $padding + 10px 0 $padding + 20px;
 
   &-title {
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: $padding - 70px;
     &__item {
-      font-size: 1.875rem;
+      font-size: $font-size + 1rem;
       color: #002747;
 
       @media screen and(max-width: 731px) {
@@ -149,16 +150,16 @@ export default {
 
   &-input {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: $padding - 70px;
 
     &__item {
-      width: 100%;
+      width: $primary-width;
       padding: 15px 20px;
       background-color: #f0f3f5;
       border-radius: 5px;
-      font-size: 0.875rem;
-      color: #737272;
-      margin-bottom: 30px;
+      font-size: $font-size;
+      color: $secondary-color;
+      margin-bottom: $padding - 70px;
 
       &:nth-child(2) {
         margin-bottom: 0;
@@ -183,24 +184,24 @@ export default {
     &__invalid {
       position: absolute;
       left: 0;
-      top: 128px;
-      font-size: 0.875rem;
+      top: $padding + 28px;
+      font-size: $font-size;
       color: rgb(235, 31, 31);
     }
   }
 
   &-area {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: $padding - 60px;
 
     &__item {
-      width: 100%;
-      height: 300px;
-      background-color: #f0f3f5;
+      width: $primary-width;
+      height: $padding + 200px;
+      background-color: $primary-color;
       border-radius: 5px;
-      color: #737272;
+      color: $secondary-color;
       padding: 13px 20px;
-      font-size: 0.875rem;
+      font-size: $font-size;
       font-family: "Open Sans", sans-serif;
 
       &:active,
@@ -217,7 +218,7 @@ export default {
       position: absolute;
       left: 0;
       bottom: -20px;
-      font-size: 0.875rem;
+      font-size: $font-size;
       color: rgb(235, 31, 31);
     }
   }
@@ -227,9 +228,9 @@ export default {
     justify-content: flex-end;
 
     &__item {
-      background-color: #f0f3f5;
-      color: #737272;
-      font-size: 0.875rem;
+      background-color: $primary-color;
+      color: $secondary-color;
+      font-size: $font-size;
       border-radius: 15px;
       padding: 8px 27px;
       border: 1px solid transparent;
@@ -246,9 +247,9 @@ export default {
       }
 
       &:hover {
-        color: #f0f3f5;
-        background-color: #737272;
-        border-color: #f0f3f5;
+        color: $primary-color;
+        background-color: $secondary-color;
+        border-color: $primary-color;
       }
     }
   }

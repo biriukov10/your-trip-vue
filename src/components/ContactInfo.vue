@@ -7,6 +7,7 @@
           TemplateMonster provides 24/7 support for all its
           <a
             href="#"
+            target="_blank"
             class="ba-contact-desc__link"
           >premium products</a>. Freebies go without it.
         </p>
@@ -14,6 +15,7 @@
           If you have any questions regarding the customization of the chosen free theme, ask
           <a
             href="#"
+            target="_blank"
             class="ba-contact-desc__link"
           >TemplateTuning</a> to help you on a paid basis.
         </p>
@@ -22,7 +24,7 @@
         <google-maps></google-maps>
       </div>
       <div class="ba-contact-adress">
-        <p class="ba-contact-adress__text">
+        <p class="ba-contact-adress__text" title="Adress">
           The Company Name Inc.
           <br />8901 Marmora Road,
           <br />Glasgow, D04 89GR.
@@ -34,7 +36,7 @@
           <br />
           <span title="Fax">FAX:+1 800 889 9898</span>
           <br />E-mail:
-          <a href="#" class="ba-contact-adress__link">mail@demolink.org</a>
+          <a href="#" target="_blank" class="ba-contact-adress__link">mail@demolink.org</a>
         </p>
       </div>
     </div>
@@ -54,12 +56,17 @@ export default {
 </script>
 
 <style lang="scss">
+$padding: 100px;
+$primary-color: #737272;
+$secondary-color: #f3aa29;
+$font-size: 0.875rem;
+
 .ba-contact {
-  padding: 110px 0 120px;
+  padding: $padding + 10px 0 $padding + 20px;
 
   .ba-contact-info {
     &__title {
-      font-size: 1.875rem;
+      font-size: $font-size + 1rem;
       color: #002747;
 
       @media screen and(max-width: 731px) {
@@ -73,8 +80,8 @@ export default {
     margin-bottom: 25px;
 
     &__text {
-      font-size: 0.875rem;
-      color: #737272;
+      font-size: $font-size;
+      color: $primary-color;
 
       &:first-child {
         margin-bottom: 18px;
@@ -82,7 +89,7 @@ export default {
     }
 
     &__link {
-      color: #f3aa29;
+      color: $secondary-color;
     }
   }
 
@@ -95,8 +102,8 @@ export default {
     margin-top: 27px;
 
     &__text {
-      font-size: 0.875rem;
-      color: #737272;
+      font-size: $font-size;
+      color: $primary-color;
       line-height: 20px;
 
       &:first-child {
@@ -105,7 +112,7 @@ export default {
     }
 
     &__link {
-      color: #f3aa29;
+      color: $secondary-color;
     }
   }
 }

@@ -15,7 +15,7 @@
               <p
                 class="ba-offers-info__text ba-offers-info__text--margin"
               >Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet</p>
-              <a href="#" class="ba-offers-info__link">LEARN MORE</a>
+              <a href="#" target="_blank" class="ba-offers-info__link">LEARN MORE</a>
             </div>
           </div>
         </div>
@@ -64,15 +64,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$primary-pixel: 100px;
+$font-size: 0.875;
+$primary-color: #e5e5e5;
+$secondary-color: #737272;
+$danger-color: #c73430;
+$sucsses-color: #f3aa29;
+$blue-color: #002747;
+
 .ba-offers {
-  padding-top: 110px;
-  padding-bottom: 120px;
-  margin-bottom: 20px;
+  padding-top: $primary-pixel + 10px;
+  padding-bottom: $primary-pixel + 20px;
+  margin-bottom: $primary-pixel - 80px;
 
   &__title {
     text-transform: uppercase;
-    color: #002747;
-    font-size: 1.875rem;
+    color: $blue-color;
+    font-size: $font-size + 1rem;
   }
 
   &-special {
@@ -82,51 +90,51 @@ export default {
     &__image {
       @media screen and(max-width: 550px) {
         width: 100%;
-        width: 500px;
-        min-height: 400px;
+        width: $primary-pixel + 400px;
+        min-height: $primary-pixel + 300px;
       }
     }
 
     @media screen and(max-width: 550px) {
       flex-direction: column;
-      margin-bottom: 40px;
+      margin-bottom: $primary-pixel - 60px;
     }
   }
 
   &-info {
-    margin-left: 20px;
-    margin-right: 10px;
+    margin-left: $primary-pixel - 80px;
+    margin-right: $primary-pixel - 90px;
 
     &__title {
-      font-size: 1.125rem;
-      color: #f3aa29;
+      font-size: $font-size + 0.25rem;
+      color: $sucsses-color;
       text-transform: uppercase;
-      margin-bottom: 25px;
+      margin-bottom: $primary-pixel - 75px;
 
       @media screen and(max-width: 550px) {
-        margin-bottom: 10px;
+        margin-bottom: $primary-pixel - 90px;
       }
     }
 
     &__text {
-      font-size: 0.75rem;
-      color: #737272;
-      margin-bottom: 20px;
+      font-size: $font-size - 0.125rem;
+      color: $secondary-color;
+      margin-bottom: $primary-pixel - 80px;
 
       &--margin {
-        margin-bottom: 40px;
+        margin-bottom: $primary-pixel - 60px;
 
         @media screen and(max-width: 550px) {
-          margin-bottom: 20px;
+          margin-bottom: $primary-pixel - 80px;
         }
       }
     }
 
     &__link {
       display: inline-block;
-      color: #c73430;
-      font-size: 0.875rem;
-      background-color: #e5e5e5;
+      color: $danger-color;
+      font-size: $font-size;
+      background-color: $primary-color;
       padding: 7px 17px;
       border-radius: 15px;
       transition: 0.3s;
@@ -138,20 +146,22 @@ export default {
 
       &:hover {
         background-color: #c73430;
-        color: #e5e5e5;
-        border-color: #dad7d7;
+        color: $primary-color;
+        border-color: $primary-color;
       }
     }
 
     @media screen and(max-width: 550px) {
-      margin-top: 30px;
+      margin-top: $primary-pixel - 70px;
     }
   }
 
   &-choice {
+    margin-left: 30px;
+
     &__title {
-      font-size: 1.25rem;
-      color: #002747;
+      font-size: $font-size + 0.25rem;
+      color: $blue-color;
       text-transform: uppercase;
       margin-bottom: 15px;
     }
@@ -159,28 +169,32 @@ export default {
     &__search {
       background-color: #dad7d7;
       border-radius: 5px;
-      padding: 0.425rem;
-      font-size: 0.875rem;
-      color: #737272;
+      padding: $font-size - 0.45rem;
+      font-size: $font-size;
+      color: $secondary-color;
 
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
 
       @media screen and (max-width: 733px) {
-        padding: 0.875rem;
+        padding: $font-size + 0.0125rem;
       }
+    }
+
+    @media screen and (max-width: 733px) {
+      margin-left: 0;
     }
   }
 
   &-country {
-    margin-top: 10px;
-    padding-left: 25px;
+    margin-top: $primary-pixel - 90px;
+    padding-left: $primary-pixel - 75px;
 
     &__item {
       position: relative;
-      font-size: 1.125rem;
-      color: #737272;
+      font-size: $font-size + 0.25rem;
+      color: $secondary-color;
 
       &::before {
         content: url("https://i.ibb.co/2hCNQ9p/arrow-min.png");
@@ -192,8 +206,8 @@ export default {
   }
 
   @media screen and (max-width: 733px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: $primary-pixel - 40px;
+    padding-bottom: $primary-pixel - 40px;
   }
 }
 </style>
