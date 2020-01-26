@@ -85,6 +85,7 @@ $primary-pixel: 9px;
         &:hover {
           color: lighten($light-color, 90);
           background-color: darken($danger-color, 20);
+          transform: scale(1.2);
         }
 
         &--facebook {

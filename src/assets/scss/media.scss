@@ -67,6 +67,10 @@
         }
       }
 
+      &-input-select {
+        flex-direction: column;
+      }
+
       &-calendar {
         &-wrapp {
           flex-direction: column;

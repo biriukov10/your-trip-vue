@@ -72,7 +72,7 @@ $primaryFontSize: 0.875rem;
     &--quotes {
       font-size: $primaryFontSize + 0.625rem;
       margin-top: 50px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
 
       @media screen and (max-width: 861px) {
         margin-top: 20px;
@@ -82,7 +82,7 @@ $primaryFontSize: 0.875rem;
 
   &-card {
     display: flex;
-    margin-bottom: 23px;
+    margin-bottom: 27px;
 
     &:last-child {
       margin-bottom: 0;
@@ -126,7 +126,7 @@ $primaryFontSize: 0.875rem;
       color: $primary-color;
 
       &:first-child {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
       }
     }
   }
@@ -136,7 +136,7 @@ $primaryFontSize: 0.875rem;
     color: $primary-color;
 
     &--margin {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
 
       @media screen and (max-width: 861px) {
         margin-bottom: 10px;
@@ -151,7 +151,7 @@ $primaryFontSize: 0.875rem;
   &-link {
     display: flex;
     justify-content: flex-end;
-    margin-top: 30px;
+    margin-top: 35px;
 
     &--btn {
       justify-content: flex-start;

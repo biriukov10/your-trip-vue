@@ -116,6 +116,7 @@ $fonr-size: 0.875rem;
       }
 
       &__link {
+        position: relative;
         display: inline-block;
         font-size: $fonr-size;
         color: #e85252;
@@ -126,16 +127,44 @@ $fonr-size: 0.875rem;
         border: 1px solid transparent;
         text-decoration: none;
         transition: all 0.3s;
+        overflow: hidden;
 
         &:active,
         &:focus {
           border: 1px solid green;
         }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -50%;
+          width: 50%;
+          height: 100%;
+          background-color: #f347478e;
+          clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+          transition: 0.4s;
+        }
 
-        &:hover {
-          background-color: #e85252;
-          color: #dad7d7;
-          border-color: #dad7d7;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -50%;
+          width: 50%;
+          height: 100%;
+          background-color: #f347478e;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+          transition: 0.4s;
+        }
+
+        &:hover::before {
+          left: 0;
+          width: 50.5%;
+        }
+
+        &:hover::after {
+          right: 0;
+          width: 55%;
         }
       }
 

@@ -1,24 +1,42 @@
 <template>
-  <form class="ba-form">
+  <form class="ba-form" @submit.prevent="onSubmit">
     <fieldset class="ba-form-title">
       <legend class="ba-form-title__item">Booking Form</legend>
     </fieldset>
     <div class="ba-form-input">
       <div class="ba-form-input-wrapp">
-        <input type="text" class="ba-form-input__item" placeholder="Name:" />
+        <input type="text" class="ba-form-input__item" placeholder="Name:" v-model.trim="name" />
         <input
+          :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+          v-model.trim="email"
           type="email"
           class="ba-form-input__item"
           placeholder="Email:"
-          required
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         />
+        <small
+          class="ba-form-input__invalid ba-form-input__invalid--email invalid"
+          v-if="$v.email.$dirty && !$v.email.required"
+        >Do not leave the field blank</small>
+        <small
+          class="ba-form-input__invalid invalid ba-form-input__invalid--email invalid"
+          v-else-if="$v.email.$dirty && !$v.email.email"
+        >Enter the correct email</small>
       </div>
-      <div class="ba-form-input-wrapp">
-        <select name="country" class="ba-form-input__item ba-form-input__item--select">
-          <option :value="item" v-for="(item, index) in country" :key="index">{{ item }}</option>
+      <div class="ba-form-input-select">
+        <select name="country" class="ba-form-input-select__item">
+          <option
+            :value="item.country"
+            v-for="(item, index) in hotelCountry"
+            :key="index"
+          >{{ item.country }}</option>
         </select>
-        <input type="text" class="ba-form-input__item" placeholder="Hotel:" />
+        <select name="hotel" class="ba-form-input-select__item">
+          <option
+            :value="item.hotel"
+            v-for="(item, index) in hotelCountry"
+            :key="index"
+          >{{ item.hotel }}</option>
+        </select>
       </div>
     </div>
     <div class="ba-form-calendar">
@@ -70,23 +88,99 @@
       </label>
     </div>
     <div class="ba-form-area">
-      <textarea class="ba-form-area__item" placeholder="Message"></textarea>
+      <textarea
+        class="ba-form-area__item"
+        v-model.trim="text"
+        placeholder="Message"
+        :class="{invalid: ($v.text.$dirty && !$v.text.required) || ($v.text.$dirty && !$v.text.minLength)}"
+      ></textarea>
+      <small
+        class="ba-form-area__invalid invalid"
+        v-if="$v.text.$dirty && !$v.text.required"
+      >Enter a text</small>
+      <small
+        class="ba-form-area__invalid invalid"
+        v-else-if="$v.text.$dirty && !$v.text.minLength"
+      >Name must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
     </div>
     <div class="ba-form-link ba-form-link--btn">
-      <button class="ba-form-link__item">Submit</button>
+      <button type="submit" @click="onSubmit" class="ba-form-link__item">Submit</button>
     </div>
+    <modal-window class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
   </form>
 </template>
 
 <script>
-import { country } from "../services/CountryService";
+import { hotelCountry, hotel } from "../services/CountryService";
+import { email, required, minLength } from "vuelidate/lib/validators";
+import Modal from "./Modal";
 
 export default {
   data() {
     return {
+      hotelCountry,
+      hotel,
       search: "",
-      country
+      email: "",
+      text: "",
+      name: "",
+      submitted: {
+        name: "",
+        email: "",
+        text: ""
+      },
+      showModal: false
     };
+  },
+  validations: {
+    email: { email, required },
+    text: { required, minLength: minLength(15) }
+  },
+  methods: {
+    resetForm() {
+      this.submitted.name = this.name;
+      this.submitted.email = this.email;
+      this.submitted.text = this.text;
+
+      this.name = this.email = this.text = "";
+    },
+
+    onSubmit() {
+      if (this.$v.$invalid) {
+        this.$v.$touch();
+        return;
+      }
+      const formData = {
+        email: this.email,
+        text: this.text,
+        name: this.name
+      };
+      setTimeout(() => {
+        this.showModal = true;
+        this.resetForm();
+      }, 700);
+
+      console.log(formData);
+    }
+  },
+  mounted() {
+    // по нажатию на esc закрыть окно
+    let thisModal = this;
+    window.addEventListener("keydown", function(e) {
+      if (e.keyCode == 27) {
+        thisModal.showModal = false;
+      }
+    });
+    // по клику вне модалки закрыть её
+    window.addEventListener("click", function(e) {
+      let modal = document.querySelector(".modal-mask");
+      if (e.target == modal) {
+        thisModal.showModal = false;
+      }
+    });
+  },
+  components: {
+    modalWindow: Modal
   }
 };
 </script>
@@ -117,6 +211,7 @@ $primaryFontSize: 0.875rem;
       display: flex;
       justify-content: space-between;
       margin-bottom: 30px;
+      position: relative;
 
       &:nth-child(2) {
         margin-bottom: 0;
@@ -133,13 +228,15 @@ $primaryFontSize: 0.875rem;
       display: inline-block;
       padding: 0.625rem;
       background-color: $primary-color;
+      color: $background-color;
 
-      &--select {
-        color: $background-color;
-      }
-
+      &:active,
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      }
+
+      &.invalid {
+        box-shadow: 0 0 5px rgb(235, 31, 31);
       }
 
       @media screen and (max-width: 861px) {
@@ -152,6 +249,75 @@ $primaryFontSize: 0.875rem;
         width: $primary-width;
         max-width: 400px;
       }
+    }
+
+    &__invalid {
+      position: absolute;
+      right: 0;
+      top: 42px;
+      font-size: $primaryFontSize;
+      color: rgb(235, 31, 31);
+
+      @media screen and(max-width: 861px) {
+        left: 43px;
+        top: 130px;
+      }
+    }
+  }
+
+  &-input-select {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+
+    &__item {
+      width: $primary-width;
+      max-width: 195px;
+      display: inline-block;
+      padding: 0.825rem;
+      background-color: $primary-color;
+      color: $background-color;
+
+      &:nth-child(2) {
+        margin-bottom: 0;
+      }
+      &:active,
+      &:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      }
+
+      &.invalid {
+        box-shadow: 0 0 5px rgb(235, 31, 31);
+      }
+
+      @media screen and (max-width: 861px) {
+        width: $primary-width;
+        max-width: 310px;
+        margin: 0 auto 20px;
+      }
+
+      @media screen and (max-width: 510px) {
+        width: $primary-width;
+        max-width: 400px;
+      }
+    }
+
+    &__invalid {
+      position: absolute;
+      right: 0;
+      top: 42px;
+      font-size: $primaryFontSize;
+      color: rgb(235, 31, 31);
+
+      @media screen and(max-width: 861px) {
+        left: 43px;
+        top: 125px;
+      }
+    }
+
+    @media screen and (max-width: 861px) {
+      margin-bottom: 30px;
     }
   }
 
@@ -180,6 +346,7 @@ $primaryFontSize: 0.875rem;
       cursor: pointer;
       font-family: "Open Sans", sans-serif;
 
+      &:active,
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
@@ -207,8 +374,8 @@ $primaryFontSize: 0.875rem;
 
   &-radio {
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
 
     &__desc {
       margin-right: 30px;
@@ -241,6 +408,8 @@ $primaryFontSize: 0.875rem;
   }
 
   &-area {
+    position: relative;
+
     &__item {
       width: $primary-width;
       min-height: 100px;
@@ -252,9 +421,21 @@ $primaryFontSize: 0.875rem;
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
 
+      &.invalid {
+        box-shadow: 0 0 5px rgb(235, 31, 31);
+      }
+
       @media screen and(max-width: 861px) {
         min-height: 130px;
       }
+    }
+
+    &__invalid {
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      font-size: $primaryFontSize;
+      color: rgb(235, 31, 31);
     }
   }
 

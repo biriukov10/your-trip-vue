@@ -180,6 +180,7 @@ $uppercase: uppercase;
     }
 
     &__link {
+      position: relative;
       display: inline-block;
       font-size: $secondaryFontSize;
       color: $danger-color;
@@ -189,16 +190,45 @@ $uppercase: uppercase;
       margin-top: $padding - 65px;
       border: 1px solid transparent;
       transition: 0.3s;
+      overflow: hidden;
 
       &:active,
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
 
-      &:hover {
-        color: $primary-color;
-        background-color: $danger-color;
-        border-color: $primary-color;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 50%;
+        height: 100%;
+        background-color: #f347478e;
+        clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+        transition: 0.4s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -50%;
+        width: 50%;
+        height: 100%;
+        background-color: #f347478e;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+        transition: 0.4s;
+      }
+
+      &:hover::before {
+        left: 0;
+        width: 50.5%;
+      }
+
+      &:hover::after {
+        right: 0;
+        width: 55%;
       }
     }
   }

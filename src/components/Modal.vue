@@ -3,7 +3,8 @@
     <div class="modal-mask" ref="modal">
       <div class="modal-container">
         <div class="modal-text">
-          <slot name="text">Your application is completed, expect a response</slot>
+          <h1 class="modal-title">Hello,</h1>
+          <slot name="text">your application is completed, expect a response</slot>
         </div>
         <button class="modal-default-button" @click="$emit('close')">X</button>
       </div>

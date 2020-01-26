@@ -212,6 +212,7 @@ $zero: 0;
         }
 
         &__link {
+          position: relative;
           display: block;
           background-color: #dad7d7;
           color: #e85252;
@@ -220,16 +221,45 @@ $zero: 0;
           border-radius: 30px;
           border: 1px solid transparent;
           text-transform: uppercase;
+          overflow: hidden;
 
           &:active,
           &:focus {
             border: 1px solid green;
           }
 
-          &:hover {
-            background-color: #e85252;
-            color: #dad7d7;
-            border-color: #dad7d7;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 50%;
+            height: 100%;
+            background-color: #f347478e;
+            clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+            transition: 0.4s;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -50%;
+            width: 50%;
+            height: 100%;
+            background-color: #f347478e;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+            transition: 0.4s;
+          }
+
+          &:hover::before {
+            left: 0;
+            width: 50.5%;
+          }
+
+          &:hover::after {
+            right: 0;
+            width: 55%;
           }
         }
 
