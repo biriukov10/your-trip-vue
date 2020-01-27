@@ -99,7 +99,7 @@ export default {
       setTimeout(() => {
         this.showModal = true;
         this.resetForm();
-      }, 700);
+      }, 500);
       console.log(formData);
     }
   },

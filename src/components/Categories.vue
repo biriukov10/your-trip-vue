@@ -40,6 +40,7 @@
 </template>
  
 <script>
+import { accordion } from "../services/CountryService";
 new WOW().init();
 export default {
   data() {
@@ -58,85 +59,7 @@ export default {
           title: "Hotel"
         }
       ],
-      accordion: {
-        item1: {
-          title: "Estonia from $350",
-          content:
-            "No meals, 500 meters to the sea, excellent beach, free bar, 7 days 6 nights",
-          open: false
-        },
-        item2: {
-          title: "Egypt from $400",
-          content:
-            "Only breakfast, slippers and a towel in the room are available, 400 meters to the beach, 6 days 5 nights",
-          open: false
-        },
-        item3: {
-          title: "Turkey from $450",
-          content:
-            "A beach of stone, 300 meters from the sea, breakfast only, 7 days 6 nights",
-          open: false
-        },
-        item4: {
-          title: "Montenegro from $520",
-          content:
-            "The offer is valid for 5 days, breakfast only, insurance included, 5 days 4 nights",
-          open: false
-        },
-        item5: {
-          title: "Latvia from $550",
-          content:
-            "Great beach, the hotel has a pool, breakfast and dinner, 6 days 5 nights",
-          open: false
-        },
-        item6: {
-          title: "Greece from $600",
-          content:
-            "Restaurant with in-room sea view, breakfast and dinner, 6 unforgettable days",
-          open: false
-        },
-        item7: {
-          title: "Finland from $700",
-          content:
-            "All inclusive, the room has Wi-Fi, 6 days 5 nights, also 2 free tours",
-          open: false
-        },
-        item8: {
-          title: "Italy from $750",
-          content: "Beautiful Italy, breakfast only, free bar, 6 days",
-          open: false
-        },
-        item8: {
-          title: "Montenegro from $850",
-          content:
-            "All inclusive, 7 days 8 nights, great beach, beautiful view",
-          open: false
-        },
-        item9: {
-          title: "Madagascar from $900",
-          content:
-            "All inclusive, 8 days 9 nights, 2 minutes to the beach, free bar, insurance and 2 guided tours for free",
-          open: false
-        },
-        item9: {
-          title: "Spain from $900",
-          content:
-            "All inclusive, 8 days 9 nights, hotel by the sea ,free bar, insurance and 2 guided tours for free.",
-          open: false
-        },
-        item10: {
-          title: "Sri Lanka from $1000",
-          content:
-            "Tropical jungle, delicious cocktails, it's all inclusive, for 10 days 11 nights.",
-          open: false
-        },
-        item11: {
-          title: "Dominican Republic from $1200",
-          content:
-            "Tropical jungle, delicious cocktails, it's all inclusive, for 10 days 11 nights.",
-          open: false
-        }
-      }
+      accordion
     };
   }
 };

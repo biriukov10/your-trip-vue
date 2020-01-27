@@ -24,11 +24,14 @@
       >
         Travel Website
         Templates
-      </a> category offers you a variety of designs that are perfect for
-      travel sphere of
-      business.
+      </a>help you to share your travel experience with the online world. If you are having a travel agency, travel website helps the user to understand your travel services and package cost easily.
     </p>
-    <p class="ba-comment__text">Proin pharetra luctus diam, a scelerisque eros convallis</p>
+    <p
+      class="ba-comment__text"
+    >If you are a travel blogger who posts lots of your adventures on Instagram, it’s important to have a travel blog.</p>
+    <p
+      class="ba-comment__text"
+    >The travel blog helps you to look back and see beautiful memories of you in one place.</p>
     <h2 class="ba-comment__title ba-comment__title--quotes">Clients’ Quotes</h2>
     <div class="ba-comment-card">
       <img
@@ -134,6 +137,7 @@ $primaryFontSize: 0.875rem;
   &__text {
     font-size: $primaryFontSize;
     color: $primary-color;
+    line-height: 1.6;
 
     &--margin {
       margin-bottom: 25px;

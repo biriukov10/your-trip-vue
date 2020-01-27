@@ -23,21 +23,23 @@
         >Enter the correct email</small>
       </div>
       <div class="ba-form-input-select">
-        <select name="country" class="ba-form-input-select__item">
-          <option
-            :value="item.country"
-            v-for="(item, index) in hotelCountry"
-            :key="index"
-          >{{ item.country }}</option>
-        </select>
-        <select name="hotel" class="ba-form-input-select__item">
-          <option
-            :value="item.hotel"
-            v-for="(item, index) in hotelCountry"
-            :key="index"
-          >{{ item.hotel }}</option>
-        </select>
+        <label class="ba-form-input-select__title">
+          Country:
+          <select name="country" v-model="selectedValue" class="ba-form-input-select__item">
+            <option :value="index" v-for="(item, index) in countryHotel" :key="index">{{ index }}</option>
+          </select>
+        </label>
+        <label class="ba-form-input-select__title">
+          Hotel:
+          <select name="hotel" class="ba-form-input-select__item">
+            <option>{{ countryHotel[selectedValue] }}</option>
+          </select>
+        </label>
       </div>
+      <!-- 
+            :value="item"
+            v-for="(item, index) in countryHotel"
+      :key="index"-->
     </div>
     <div class="ba-form-calendar">
       <div class="ba-form-calendar-wrapp">
@@ -111,15 +113,14 @@
 </template>
 
 <script>
-import { hotelCountry, hotel } from "../services/CountryService";
+import { countryHotel } from "../services/CountryService";
 import { email, required, minLength } from "vuelidate/lib/validators";
 import Modal from "./Modal";
 
 export default {
   data() {
     return {
-      hotelCountry,
-      hotel,
+      countryHotel,
       search: "",
       email: "",
       text: "",
@@ -129,7 +130,8 @@ export default {
         email: "",
         text: ""
       },
-      showModal: false
+      showModal: false,
+      selectedValue: null
     };
   },
   validations: {
@@ -158,8 +160,7 @@ export default {
       setTimeout(() => {
         this.showModal = true;
         this.resetForm();
-      }, 700);
-
+      }, 500);
       console.log(formData);
     }
   },
@@ -226,7 +227,8 @@ $primaryFontSize: 0.875rem;
       width: $primary-width;
       max-width: 195px;
       display: inline-block;
-      padding: 0.625rem;
+      padding: 0.825rem;
+      border-radius: 5px;
       background-color: $primary-color;
       color: $background-color;
 
@@ -267,17 +269,29 @@ $primaryFontSize: 0.875rem;
 
   &-input-select {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 30px;
     position: relative;
 
+    &__title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      @media screen and (max-width: 861px) {
+        flex-direction: column;
+      }
+    }
+
     &__item {
+      margin-left: auto;
       width: $primary-width;
-      max-width: 195px;
+      max-width: 310px;
       display: inline-block;
       padding: 0.825rem;
+      color: $secondary-color;
       background-color: $primary-color;
-      color: $background-color;
+      border-radius: 5px;
 
       &:nth-child(2) {
         margin-bottom: 0;
@@ -294,7 +308,7 @@ $primaryFontSize: 0.875rem;
       @media screen and (max-width: 861px) {
         width: $primary-width;
         max-width: 310px;
-        margin: 0 auto 20px;
+        margin: 0 auto;
       }
 
       @media screen and (max-width: 510px) {
@@ -339,9 +353,10 @@ $primaryFontSize: 0.875rem;
       width: $primary-width;
       max-width: 336px;
       margin-left: auto;
+      padding: 0.825rem;
+      color: $secondary-color;
       background-color: $primary-color;
-      padding: 10px 20px;
-      color: lighten($background-color, 10);
+      border-radius: 5px;
       font-size: $primaryFontSize;
       cursor: pointer;
       font-family: "Open Sans", sans-serif;
@@ -374,7 +389,7 @@ $primaryFontSize: 0.875rem;
 
   &-radio {
     display: flex;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 25px;
 
     &__desc {
@@ -396,7 +411,9 @@ $primaryFontSize: 0.875rem;
       background-color: $primary-color;
       margin-left: 19px;
       padding: 3px;
+      border-radius: 5px;
 
+      &:active,
       &:focus {
         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
       }
@@ -415,6 +432,7 @@ $primaryFontSize: 0.875rem;
       min-height: 100px;
       padding: 13px 15px;
       background-color: $primary-color;
+      border-radius: 5px;
       font-family: "Open Sans", sans-serif;
 
       &:focus {

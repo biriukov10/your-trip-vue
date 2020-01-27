@@ -1,6 +1,6 @@
 <template>
   <header class="head">
-    <i class="fas fa-bars menu-show" @click="menuShow = !menuShow"></i>
+    <i class="fas fa-bars menu-show" aria-label="menu show" @click="menuShow = !menuShow"></i>
     <nav class="ba-header">
       <ul class="ba-header-menu" :class="{ active: menuShow}">
         <li
@@ -66,6 +66,9 @@ $primary-width: 100%;
     top: 10px;
     right: 5%;
     font-size: 2.5rem;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    padding: 10px;
     color: $primary-color;
     z-index: 15;
     cursor: pointer;
