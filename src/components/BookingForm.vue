@@ -32,7 +32,11 @@
         <label class="ba-form-input-select__title">
           Hotel:
           <select name="hotel" class="ba-form-input-select__item">
-            <option>{{ countryHotel[selectedValue] }}</option>
+            <option
+              :value="item"
+              v-for="(item, index) in countryHotel[selectedValue]"
+              :key="index"
+            >{{ item.hotel }}</option>
           </select>
         </label>
       </div>
