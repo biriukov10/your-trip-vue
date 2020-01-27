@@ -290,7 +290,7 @@ $primaryFontSize: 0.875rem;
     &__item {
       margin-left: auto;
       width: $primary-width;
-      max-width: 310px;
+      max-width: 336px;
       display: inline-block;
       padding: 0.825rem;
       color: $secondary-color;
