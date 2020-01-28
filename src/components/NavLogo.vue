@@ -32,7 +32,7 @@ $primary-width: 100%;
   }
 
   &__image {
-    max-width: $primary-width;
+    width: $primary-width;
     height: $primary-width;
     object-fit: cover;
   }

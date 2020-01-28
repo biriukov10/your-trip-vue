@@ -40,10 +40,6 @@
           </select>
         </label>
       </div>
-      <!-- 
-            :value="item"
-            v-for="(item, index) in countryHotel"
-      :key="index"-->
     </div>
     <div class="ba-form-calendar">
       <div class="ba-form-calendar-wrapp">
@@ -182,21 +178,21 @@ export default {
       aldults: "",
       children: "",
       rooms: "",
-      submitted: {
-        name: "",
-        email: "",
-        text: "",
-        hotel: "",
-        dateOut: "",
-        dateIn: "",
-        selectedValue: "",
-        standart: "",
-        cheap: "",
-        lux: "",
-        aldults: "",
-        children: "",
-        rooms: ""
-      },
+      // submitted: {
+      //   name: "",
+      //   email: "",
+      //   text: "",
+      //   hotel: "",
+      //   dateOut: "",
+      //   dateIn: "",
+      //   selectedValue: "",
+      //   standart: "",
+      //   cheap: "",
+      //   lux: "",
+      //   aldults: "",
+      //   children: "",
+      //   rooms: ""
+      // },
       showModal: false,
       selectedValue: null
     };
@@ -207,19 +203,6 @@ export default {
   },
   methods: {
     resetForm() {
-      this.submitted.name = this.name;
-      this.submitted.email = this.email;
-      this.submitted.hotel = this.hotel;
-      this.submitted.dateIn = this.dateIn;
-      this.submitted.dateOut = this.dateOut;
-      this.submitted.selectedValue = this.selectedValue;
-      this.submitted.cheap = this.cheap;
-      this.submitted.lux = this.lux;
-      this.submitted.standart = this.standart;
-      this.submitted.aldults = this.aldults;
-      this.submitted.children = this.children;
-      this.submitted.rooms = this.rooms;
-
       this.name = this.email = this.text = this.hotel = this.dateIn = this.dateOut = this.selectedValue = this.cheap = this.standart = this.lux = this.aldults = this.children = this.rooms =
         "";
     },
@@ -278,6 +261,7 @@ $primary-width: 100%;
 $primary-color: #f0f3f5;
 $secondary-color: #96a5b2;
 $background-color: #737272;
+$inputBg: #dee1e4;
 $primaryFontSize: 0.875rem;
 
 .ba-form {
@@ -316,7 +300,7 @@ $primaryFontSize: 0.875rem;
       display: inline-block;
       padding: 0.825rem;
       border-radius: 5px;
-      background-color: $primary-color;
+      background-color: $inputBg;
       color: $background-color;
 
       &:active,
@@ -343,7 +327,7 @@ $primaryFontSize: 0.875rem;
     &__invalid {
       position: absolute;
       right: 0;
-      top: 42px;
+      top: 47px;
       font-size: $primaryFontSize;
       color: rgb(235, 31, 31);
 
@@ -377,7 +361,7 @@ $primaryFontSize: 0.875rem;
       display: inline-block;
       padding: 0.825rem;
       color: $secondary-color;
-      background-color: $primary-color;
+      background-color: $inputBg;
       border-radius: 5px;
 
       &:nth-child(2) {
@@ -442,7 +426,7 @@ $primaryFontSize: 0.875rem;
       margin-left: auto;
       padding: 0.825rem;
       color: $secondary-color;
-      background-color: $primary-color;
+      background-color: $inputBg;
       border-radius: 5px;
       font-size: $primaryFontSize;
       cursor: pointer;
@@ -464,6 +448,7 @@ $primaryFontSize: 0.875rem;
         right: 0;
         cursor: pointer;
         color: $secondary-color;
+        user-select: none;
       }
 
       @media screen and (max-width: 510px) {
@@ -495,7 +480,7 @@ $primaryFontSize: 0.875rem;
 
     &__item {
       color: $secondary-color;
-      background-color: $primary-color;
+      background-color: $inputBg;
       margin-left: 19px;
       padding: 3px;
       border-radius: 5px;
@@ -518,7 +503,7 @@ $primaryFontSize: 0.875rem;
       width: $primary-width;
       min-height: 100px;
       padding: 13px 15px;
-      background-color: $primary-color;
+      background-color: $inputBg;
       border-radius: 5px;
       font-family: "Open Sans", sans-serif;
 

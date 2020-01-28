@@ -50,7 +50,7 @@
         <button @click="onSubmit" class="ba-contact-form-btn__item" type="submit">Submit</button>
       </div>
     </form>
-    <modal-window :name="name" class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
+    <modal-window class="ba-modal" v-if="showModal" :name="this.name" @close="showModal = false"></modal-window>
   </div>
 </template>
 
@@ -84,9 +84,11 @@ export default {
       this.submitted.email = this.email;
       this.submitted.text = this.text;
 
-      this.name = this.email = this.text = "";
+      // this.name = this.email = this.text = "";
     },
-
+    getName() {
+      return console.log(this.name);
+    },
     onSubmit() {
       if (this.$v.$invalid) {
         this.$v.$touch();
@@ -132,6 +134,7 @@ $font-size: 0.875rem;
 $primary-width: 100%;
 $primary-color: #f0f3f5;
 $secondary-color: #737272;
+$inputBg: #dee1e4;
 
 .ba-contact-form {
   padding: $padding + 10px 0 $padding + 20px;
@@ -156,7 +159,7 @@ $secondary-color: #737272;
     &__item {
       width: $primary-width;
       padding: 15px 20px;
-      background-color: #f0f3f5;
+      background-color: $inputBg;
       border-radius: 5px;
       font-size: $font-size;
       color: $secondary-color;
@@ -198,7 +201,7 @@ $secondary-color: #737272;
     &__item {
       width: $primary-width;
       height: $padding + 200px;
-      background-color: $primary-color;
+      background-color: $inputBg;
       border-radius: 5px;
       color: $secondary-color;
       padding: 13px 20px;
