@@ -31,7 +31,7 @@
         </label>
         <label class="ba-form-input-select__title">
           Hotel:
-          <select name="hotel" class="ba-form-input-select__item">
+          <select name="hotel" v-model="hotel" class="ba-form-input-select__item">
             <option
               :value="item"
               v-for="(item, index) in countryHotel[selectedValue]"
@@ -48,46 +48,89 @@
     <div class="ba-form-calendar">
       <div class="ba-form-calendar-wrapp">
         <label class="ba-form-calendar__desc" for="dateOne">Chek-in</label>
-        <input class="ba-form-calendar__item" type="date" id="dateOne" value="2020-01-29" />
+        <input
+          class="ba-form-calendar__item"
+          v-model="dateIn"
+          type="date"
+          id="dateOne"
+          value="2020-01-29"
+        />
       </div>
       <div class="ba-form-calendar-wrapp">
         <label class="ba-form-calendar__desc" for="dateTwo">Chek-out</label>
-        <input class="ba-form-calendar__item" type="date" id="dateTwo" value="2020-06-01" />
+        <input
+          class="ba-form-calendar__item"
+          v-model="dateOut"
+          type="date"
+          id="dateTwo"
+          value="2020-06-01"
+        />
       </div>
     </div>
     <h3 class="ba-form__title">Comfort</h3>
     <div class="ba-form-radio">
       <label class="ba-form-radio__desc" for="cheap">
-        <input class="ba-form-radio__item" type="radio" id="cheap" name="choine" checked />
+        <input
+          class="ba-form-radio__item"
+          v-model="cheap"
+          type="radio"
+          id="cheap"
+          name="choine"
+          checked
+        />
         Cheap
       </label>
       <label class="ba-form-radio__desc" for="standart">
-        <input class="ba-form-radio__item" type="radio" id="standart" name="choine" />
+        <input
+          class="ba-form-radio__item"
+          type="radio"
+          v-model="standart"
+          id="standart"
+          name="choine"
+        />
         Standart
       </label>
       <label class="ba-form-radio__desc" for="lux">
-        <input class="ba-form-radio__item" type="radio" id="lux" name="choine" />
+        <input class="ba-form-radio__item" type="radio" id="lux" v-model="lux" name="choine" />
         Lux
       </label>
     </div>
     <div class="ba-form-select">
       <label class="ba-form-select__desc" for="adults">
         Adults
-        <select class="ba-form-select__item" name="adults" id="adults" tabindex="3">
+        <select
+          class="ba-form-select__item"
+          v-model="aldults"
+          name="adults"
+          id="adults"
+          tabindex="3"
+        >
           <option class="ba-form-select__number" value="1">1</option>
           <option class="ba-form-select__number" value="2">2</option>
         </select>
       </label>
       <label class="ba-form-select__desc" for="children">
         Children
-        <select class="ba-form-select__item" name="Children" id="children" tabindex="3">
+        <select
+          class="ba-form-select__item"
+          name="Children"
+          v-model="children"
+          id="children"
+          tabindex="3"
+        >
           <option class="ba-form-select__number" value="1">1</option>
           <option class="ba-form-select__number" value="2">2</option>
         </select>
       </label>
       <label class="ba-form-select__desc" for="rooms">
         Rooms
-        <select class="ba-form-select__item" name="rooms" id="rooms" tabindex="3">
+        <select
+          class="ba-form-select__item"
+          name="rooms"
+          id="rooms"
+          v-model="rooms"
+          tabindex="3"
+        >
           <option class="ba-form-select__number" value="1">1</option>
           <option class="ba-form-select__number" value="2">2</option>
         </select>
@@ -129,10 +172,30 @@ export default {
       email: "",
       text: "",
       name: "",
+      counrty: "",
+      hotel: "",
+      dateIn: "",
+      dateOut: "",
+      cheap: "",
+      standart: "",
+      lux: "",
+      aldults: "",
+      children: "",
+      rooms: "",
       submitted: {
         name: "",
         email: "",
-        text: ""
+        text: "",
+        hotel: "",
+        dateOut: "",
+        dateIn: "",
+        selectedValue: "",
+        standart: "",
+        cheap: "",
+        lux: "",
+        aldults: "",
+        children: "",
+        rooms: ""
       },
       showModal: false,
       selectedValue: null
@@ -146,9 +209,19 @@ export default {
     resetForm() {
       this.submitted.name = this.name;
       this.submitted.email = this.email;
-      this.submitted.text = this.text;
+      this.submitted.hotel = this.hotel;
+      this.submitted.dateIn = this.dateIn;
+      this.submitted.dateOut = this.dateOut;
+      this.submitted.selectedValue = this.selectedValue;
+      this.submitted.cheap = this.cheap;
+      this.submitted.lux = this.lux;
+      this.submitted.standart = this.standart;
+      this.submitted.aldults = this.aldults;
+      this.submitted.children = this.children;
+      this.submitted.rooms = this.rooms;
 
-      this.name = this.email = this.text = "";
+      this.name = this.email = this.text = this.hotel = this.dateIn = this.dateOut = this.selectedValue = this.cheap = this.standart = this.lux = this.aldults = this.children = this.rooms =
+        "";
     },
 
     onSubmit() {
@@ -159,7 +232,17 @@ export default {
       const formData = {
         email: this.email,
         text: this.text,
-        name: this.name
+        name: this.name,
+        hotel: this.hotel,
+        dateIn: this.dateIn,
+        dateOut: this.dateOut,
+        selectedValue: this.selectedValue,
+        cheap: this.cheap,
+        standart: this.standart,
+        lux: this.lux,
+        aldults: this.aldults,
+        children: this.children,
+        rooms: this.rooms
       };
       setTimeout(() => {
         this.showModal = true;

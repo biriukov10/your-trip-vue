@@ -50,7 +50,7 @@
         <button @click="onSubmit" class="ba-contact-form-btn__item" type="submit">Submit</button>
       </div>
     </form>
-    <modal-window class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
+    <modal-window :name="name" class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
   </div>
 </template>
 
@@ -94,7 +94,8 @@ export default {
       }
       const formData = {
         email: this.email,
-        text: this.text
+        text: this.text,
+        name: this.name
       };
       setTimeout(() => {
         this.showModal = true;
