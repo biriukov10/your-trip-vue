@@ -65,6 +65,7 @@ export default {
       email: "",
       text: "",
       name: "",
+      modalName: "",
       showModal: false
     };
   },
@@ -75,7 +76,7 @@ export default {
   methods: {
     // clear input
     resetForm() {
-      this.email = this.text = "";
+      this.email = this.text = this.name = "";
     },
     onSubmit() {
       if (this.$v.$invalid) {
@@ -87,8 +88,10 @@ export default {
         text: this.text,
         name: this.name
       };
+      this.modalName = this.name;
+      this.showModal = true;
       setTimeout(() => {
-        this.showModal = true;
+        // this.showModal = true;
         this.resetForm();
       }, 500);
       console.log(formData);
