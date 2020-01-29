@@ -4,7 +4,7 @@
       <div class="modal-container">
         <div class="modal-text">
           <h1 class="modal-title">Hello, {{ name }}</h1>
-          <slot name="text">your application is completed, expect a response</slot>
+          <slot name="text">Your application is completed, expect a response</slot>
         </div>
         <button class="modal-default-button" @click="$emit('close')">X</button>
       </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ["name"],
+  props: ["name", "showModal"],
   data() {
     return {};
   }

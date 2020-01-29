@@ -65,11 +65,6 @@ export default {
       email: "",
       text: "",
       name: "",
-      submitted: {
-        name: "",
-        email: "",
-        text: ""
-      },
       showModal: false
     };
   },
@@ -80,14 +75,7 @@ export default {
   methods: {
     // clear input
     resetForm() {
-      this.submitted.name = this.name;
-      this.submitted.email = this.email;
-      this.submitted.text = this.text;
-
-      // this.name = this.email = this.text = "";
-    },
-    getName() {
-      return console.log(this.name);
+      this.email = this.text = "";
     },
     onSubmit() {
       if (this.$v.$invalid) {

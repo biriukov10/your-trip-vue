@@ -151,7 +151,7 @@
     <div class="ba-form-link ba-form-link--btn">
       <button type="submit" @click="onSubmit" class="ba-form-link__item">Submit</button>
     </div>
-    <modal-window class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
+    <modal-window :name="this.name" class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
   </form>
 </template>
 
@@ -178,21 +178,6 @@ export default {
       aldults: "",
       children: "",
       rooms: "",
-      // submitted: {
-      //   name: "",
-      //   email: "",
-      //   text: "",
-      //   hotel: "",
-      //   dateOut: "",
-      //   dateIn: "",
-      //   selectedValue: "",
-      //   standart: "",
-      //   cheap: "",
-      //   lux: "",
-      //   aldults: "",
-      //   children: "",
-      //   rooms: ""
-      // },
       showModal: false,
       selectedValue: null
     };
@@ -203,7 +188,7 @@ export default {
   },
   methods: {
     resetForm() {
-      this.name = this.email = this.text = this.hotel = this.dateIn = this.dateOut = this.selectedValue = this.cheap = this.standart = this.lux = this.aldults = this.children = this.rooms =
+      this.email = this.text = this.hotel = this.dateIn = this.dateOut = this.selectedValue = this.cheap = this.standart = this.lux = this.aldults = this.children = this.rooms =
         "";
     },
 

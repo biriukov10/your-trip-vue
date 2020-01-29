@@ -130,7 +130,7 @@
   .ba-row-center {
     justify-content: center;
 
-    .ba-col-xs-12 {
+    .ba-col-xs-6 {
       width: 60%;
       margin-bottom: 30px;
     }
@@ -243,6 +243,13 @@
       .ba-comment-card-desc__link {
         justify-content: center;
       }
+    }
+  }
+
+  //pages card
+  .ba-row {
+    .ba-col-xs-6 {
+      width: 100%;
     }
   }
 }

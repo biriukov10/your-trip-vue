@@ -2,7 +2,11 @@
   <section class="ba-card">
     <div class="container">
       <div class="ba-row ba-row-center">
-        <div class="ba-col-4 ba-col-xs-12" v-for="(card, index) in cardItem" :key="index">
+        <div
+          class="ba-col-4 ba-col-xs-6 ba-col-xs-12"
+          v-for="(card, index) in cardItem"
+          :key="index"
+        >
           <div class="ba-card-wrapp wow zoomIn">
             <img :src="card.img" :alt="card.title.toLowerCase()" class="ba-card-wrapp__image" />
             <div class="ba-card-desc">
