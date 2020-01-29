@@ -114,6 +114,7 @@ $primary-padding: 120px;
 $primary-width: 100%;
 $font-size: 1.5rem;
 $font-weight: 400;
+$laze: 400;
 
 .ba-tours {
   padding: $primary-padding 0;
