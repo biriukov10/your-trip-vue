@@ -14,8 +14,6 @@
                   <b class="size">{{ item.price }}</b>
                   <b></b>
                 </span>
-                <!-- <br />
-                <a href="#" class="ba-tours-info__link">{{ item.link }}</a>-->
               </div>
               <div class="ba-tours-card-desc">{{ item.text }}</div>
             </div>
@@ -169,6 +167,10 @@ $font-weight: 400;
       @media screen and(max-width: 550px) {
         font-size: $font-size - 0.375rem;
       }
+
+      @media screen and(max-width: 398px) {
+        font-size: $font-size - 0.625rem;
+      }
     }
     &:hover .ba-tours-info {
       transform: translateY(0);
@@ -194,7 +196,7 @@ $font-weight: 400;
       }
 
       @media screen and(max-width: 618px) {
-        transform: translateY($primary-width - 90%);
+        transform: translateY(0);
         font-size: $font-size - 0.725rem;
       }
     }
@@ -219,6 +221,10 @@ $font-weight: 400;
       @media screen and(max-width: 550px) {
         font-size: $font-size + 1rem;
       }
+
+      @media screen and(max-width: 398px) {
+        font-size: $font-size + 0.5rem;
+      }
     }
 
     &__price {
@@ -232,6 +238,12 @@ $font-weight: 400;
       @media screen and(max-width: 550px) {
         font-size: $font-size;
       }
+      @media screen and(max-width: 398px) {
+        font-size: $font-size - 0.5rem;
+      }
+    }
+    @media screen and(max-width: 550px) {
+      transform: translateY($primary-width - 40%);
     }
   }
 
