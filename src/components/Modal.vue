@@ -17,7 +17,8 @@ export default {
   props: ["name", "showModal"],
   data() {
     return {};
-  }
+  },
+  methods: {}
 };
 </script>
 

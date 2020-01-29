@@ -103,6 +103,8 @@
         >
           <option class="ba-form-select__number" value="1">1</option>
           <option class="ba-form-select__number" value="2">2</option>
+          <option class="ba-form-select__number" value="3">3</option>
+          <option class="ba-form-select__number" value="4">4</option>
         </select>
       </label>
       <label class="ba-form-select__desc" for="children">
@@ -116,6 +118,7 @@
         >
           <option class="ba-form-select__number" value="1">1</option>
           <option class="ba-form-select__number" value="2">2</option>
+          <option class="ba-form-select__number" value="3">3</option>
         </select>
       </label>
       <label class="ba-form-select__desc" for="rooms">
@@ -129,6 +132,7 @@
         >
           <option class="ba-form-select__number" value="1">1</option>
           <option class="ba-form-select__number" value="2">2</option>
+          <option class="ba-form-select__number" value="3">3</option>
         </select>
       </label>
     </div>
@@ -286,7 +290,6 @@ $primaryFontSize: 0.875rem;
       padding: 0.825rem;
       border-radius: 5px;
       background-color: $inputBg;
-      color: $background-color;
 
       &:active,
       &:focus {
@@ -345,7 +348,6 @@ $primaryFontSize: 0.875rem;
       max-width: 336px;
       display: inline-block;
       padding: 0.825rem;
-      color: $secondary-color;
       background-color: $inputBg;
       border-radius: 5px;
 
@@ -410,7 +412,6 @@ $primaryFontSize: 0.875rem;
       max-width: 336px;
       margin-left: auto;
       padding: 0.825rem;
-      color: $secondary-color;
       background-color: $inputBg;
       border-radius: 5px;
       font-size: $primaryFontSize;
@@ -464,7 +465,6 @@ $primaryFontSize: 0.875rem;
     margin-bottom: 50px;
 
     &__item {
-      color: $secondary-color;
       background-color: $inputBg;
       margin-left: 19px;
       padding: 3px;
