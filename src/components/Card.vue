@@ -17,7 +17,7 @@
                 <b class="size">{{ card.price }}</b>
               </span>
               <br />
-              <a href="#" class="ba-card-desc__link">{{card.linkName}}</a>
+              <a href="#" target="_blank" class="ba-card-desc__link">{{card.linkName}}</a>
             </div>
           </div>
         </div>

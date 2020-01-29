@@ -15,7 +15,7 @@
                 <i class="fas fa-comments ba-news-info-icon__item"></i>
               </div>
               <div class="ba-news-info-desc">
-                <a href="#" class="ba-news-info-desc__link">Aliquam nibh</a>
+                <a href="#" target="_blank" class="ba-news-info-desc__link">Aliquam nibh</a>
                 <span class="ba-news-info-desc__text">
                   Proin pharetra luctus diam, any scelerisque eros
                   convallisumsan.

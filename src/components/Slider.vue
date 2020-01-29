@@ -20,7 +20,7 @@
               from
               <br />
               <b class="size">{{ slide.price }}</b>
-              <a href="#" class="slider-desc__link">learn more</a>
+              <a href="#" target="_blank" class="slider-desc__link">learn more</a>
             </span>
           </div>
         </div>
