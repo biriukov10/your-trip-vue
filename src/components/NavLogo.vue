@@ -58,6 +58,13 @@ $primary-width: 100%;
     @media screen and(max-width: 624px) {
       left: $primary-width - 65%;
     }
+
+    @media screen and(max-width: 398px) {
+      left: $primary-width - 85%;
+    }
+  }
+  @media screen and(max-width: 624px) {
+    height: 100px;
   }
 }
 </style>
