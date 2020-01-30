@@ -30,11 +30,11 @@
           <br />Glasgow, D04 89GR.
         </p>
         <p class="ba-contact-adress__text">
-          <span title="Freephone">Freephone:+1 800 559 6580</span>
+          <a href="#" target="_blank" title="Freephone">Freephone:+1 800 559 6580</a>
           <br />
-          <span title="Telephone">Telephone:+1 800 603 6035</span>
+          <a href="#" target="_blank" title="Telephone">Telephone:+1 800 603 6035</a>
           <br />
-          <span title="Fax">FAX:+1 800 889 9898</span>
+          <a href="#" target="_blank" title="Fax">FAX:+1 800 889 9898</a>
           <br />E-mail:
           <a href="#" target="_blank" class="ba-contact-adress__link">mail@demolink.org</a>
         </p>

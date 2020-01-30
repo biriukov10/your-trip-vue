@@ -431,10 +431,11 @@ $primaryFontSize: 0.875rem;
         font-size: 1rem;
         margin: 0 0.5rem;
         display: inline-block;
-        right: 0;
+        right: 8px;
         cursor: pointer;
         color: $secondary-color;
         user-select: none;
+        pointer-events: none;
       }
 
       @media screen and (max-width: 510px) {

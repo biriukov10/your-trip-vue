@@ -274,146 +274,133 @@ const accordion = {
   }
 }
 
+const getDate = [
+  {
+    date: 15,
+    link: "uamnibh Edet Mertolo numi",
+    url: "https://i.ibb.co/rGZsC8R/church-min.jpg",
+    title: "Church"
+  },
+  {
+    date: 17,
+    link: "Erh Emertlo numolo",
+    url: "https://i.ibb.co/xSWg9sF/resort.jpg",
+    title: "Hotel"
+  }
+]
 
+const cardInfo = [
+  {
+    title: "NEW ZEALAND",
+    price: "$ 1.200",
+    link: "learn more",
+    url: "https://i.ibb.co/djtN7ZS/newzeland-min.jpg",
+    text:
+      "New Zealand is famous for its gorgeous nature - geysers, mountains and lakes, forests and grottoes, glaciers and beaches. Widely developed environmental movement allows you to keep all this splendor in almost pristine condition, even in areas of large cities"
+  },
+  {
+    title: "GOA",
+    price: "$ 1.500",
+    link: "learn more",
+    url: "https://i.ibb.co/y8DDtYp/goa-min.jpg",
+    text:
+      "Goa is the country's main resort, as it often happens, completely unlike the rest of India. The coast stretches here for 110 km, forming 40 beautiful beaches. The state is divided into the Northern and Southern parts, the border between which is Fort Aguada."
+  },
+  {
+    title: "FRANCE",
+    price: "$ 1.600",
+    link: "learn more",
+    url: "https://i.ibb.co/LY2NJtR/paris-min.jpg",
+    text:
+      "Elegant beauty France is a vacation with charm: a rich “excursion”, relaxation on the sophisticated Cote d'Azur, famous museums, gastronomic provinces and castles of the Loire. Cuisine, wine and ski resorts - all about France: tours, prices, hotels and attractions"
+  },
+  {
+    title: "CANADA",
+    price: "$ 2.000",
+    link: "learn more",
+    url: "https://i.ibb.co/Bgg6p3v/canada-min.jpg",
+    text:
+      "Canada includes ski resorts, English and French classes, and noteworthy national parks. The capital with dignity - Ottawa, colorful Quebec and framed by the mountains of Vancouver, maples and hockey - all about Canada: visa and cities, maps and photos"
+  },
+  {
+    title: "TURKEY",
+    price: "$ 1.500",
+    link: "learn more",
+    url: "https://i.ibb.co/ZJCdgs0/turkey-min.jpg",
+    text:
+      "Turkey is not only the excellent beaches of the four seas, but also the magnificent Istanbul with the Blue Mosque and Topkapi Palace, the thermal springs of Yalova and the snow-white Pamukkale, the Cappadocian monasteries, skiing and great shopping"
+  },
+  {
+    title: "EGYPT",
+    price: "$ 1.500",
+    link: "learn more",
+    url: "https://i.ibb.co/kybmpFW/egypt-min.jpg",
+    text:
+      "The advantages of Egypt are known to everyone: a quality beach holiday all year round in the Mediterranean and Red Seas, diluted with excellent diving, plus a varied “excursion”: the pyramids, the Sphinx and Luxor. Everything about Egypt from Hurghada to Sharm"
+  },
+  {
+    title: "JAPAN",
+    price: "$ 1.000",
+    link: "learn more",
+    url: "https://i.ibb.co/3zbzBkC/japan-min.jpg",
+    text:
+      "Country of the rising sun Japan - a storehouse of sophisticated exotic. The ultramodern Tokyo and picturesque province, the Fuji snow cap and sakura in bloom, the magnificent beaches of the Okinawa islands and the ancient Shinto monuments."
+  },
+  {
+    title: "BRAZIL",
+    price: "$ 1.700",
+    link: "learn more",
+    url: "https://i.ibb.co/wdmj0zh/brazil-min.jpg",
+    text:
+      "Brazil is not only the crazy carnival in Rio de Janeiro, the impenetrable jungle of the Amazon and the thundering cascades of Iguazu, but also the famous beaches of Ipanema and Copacabana, excellent hotels, excellent cuisine and great football."
+  },
+  {
+    title: "SPAIN",
+    price: "$ 1.500",
+    link: "learn more",
+    url: "https://i.ibb.co/C9PRsHT/barcelona-min.jpg",
+    text:
+      "Proud, narcissistic, explosive, full of geniuses and mediocrity, falling in love and falling in love, tiring and tired ... all this is about Barcelona - one of the most beautiful cities not only in Europe, but all over the world. When Muscovites are asked what the capital lacks, 9 out of 10 answer - the seas"
+  }
+]
 
+const sliderList = [
+  {
+    img: "https://i.ibb.co/PtTs682/london-Slide-min.jpg",
+    title: "LONDON",
+    price: "$ 1000"
+  },
+  {
+    img: "https://i.ibb.co/25T3szC/maldives-Slide-min.jpg",
+    title: "Maldives",
+    price: "$ 2000"
+  },
+  {
+    img: "https://i.ibb.co/9N1Ry1S/venice-Slide-min.jpg",
+    title: "Venice",
+    price: "$1600"
+  }
+]
 
-// const hotelCountry = [
-//   {
-//     country: "Argentina",
-//     hotel: 'Hostel Carlos Gardel',
-//   },
-//   {
-//     country: "Australia",
-//     hotel: "Gilligan's",
-//   },
-//   {
-//     country: "Austria",
-//     hotel: 'Eventhotel Pyramide',
-//   },
-//   {
-//     country: "Barbados",
-//     hotel: "Class'Eco Charleroi",
-//   },
-//   {
-//     country: "Belgium",
-//     hotel: 'Ramada Sofia',
-//   },
-//   {
-//     country: "Bulgaria",
-//     hotel: 'Varandas do Vidigal',
-//   },
-//   {
-//     country: "Brazil",
-//     hotel: 'BoHo Prague Hotel',
-//   },
-//   {
-//     country: "Canada",
-//     hotel: 'Hotel Arena Palace',
-//   },
-//   {
-//     country: "Cyprus",
-//     hotel: 'Limanaki Beach',
-//   },
-//   {
-//     country: "Cuba",
-//     hotel: 'Hotel Sol Palmeras',
-//   },
-//   {
-//     country: "Dominican Republic",
-//     hotel: 'Catalonia Santo Domingo',
-//   },
-//   {
-//     country: "Germany",
-//     hotel: 'Hotel "Am Markt"',
-//   },
-//   {
-//     country: "Greece",
-//     hotel: 'Santorini Royal Suites',
-//   },
-//   {
-//     country: "Georgia",
-//     hotel: 'Chito-Gvrito',
-//   },
-//   {
-//     country: "Egypt",
-//     hotel: 'Luna Sharm Hotel',
-//   },
-//   {
-//     country: "Estonia",
-//     hotel: 'Hedon',
-//   },
-//   {
-//     country: "Jamaica",
-//     hotel: 'Firefly Beach Cottages',
-//   },
-//   {
-//     country: "Fijis",
-//     hotel: 'Nadi Bay Resort Hotel',
-//   },
-//   {
-//     country: "Finland",
-//     hotel: 'CheapSleep Helsinki',
-//   },
-//   {
-//     country: "France",
-//     hotel: 'Hôtel Pastoral',
-//   },
-//   {
-//     country: "Iceland",
-//     hotel: 'Moar Guesthouse',
-//   },
-//   {
-//     country: "Italy",
-//     hotel: 'Domus Sessoriana',
-//   },
-//   {
-//     country: "Montenegro",
-//     hotel: 'Regent Porto Montenegro',
-//   },
-//   {
-//     country: "Norway",
-//     hotel: 'Vestlia Resort',
-//   },
-//   {
-//     country: "Republic of Tunisia",
-//     hotel: 'Hotel Marhaba Beach',
-//   },
-//   {
-//     country: "Republic of Malta",
-//     hotel: 'Solana Hotel & Spa',
-//   },
-//   {
-//     country: "Madagascar",
-//     hotel: 'Hotel Arc en Ciel',
-//   },
-//   {
-//     country: "Netherlands",
-//     hotel: 'Hostel Sleep Inn, Amsterdam',
-//   },
-//   {
-//     country: "Turkey",
-//     hotel: 'Side Premium',
-//   },
-//   {
-//     country: "Spain",
-//     hotel: 'Hotel Marina',
-//   },
-//   {
-//     country: "Sri Lanka",
-//     hotel: 'Liyya Water Villas',
-//   },
-//   {
-//     country: "Switzerland",
-//     hotel: "Hotel Dell'Angelo",
-//   },
-//   {
-//     country: "Sweden",
-//     hotel: 'Hotell Slottsbacken',
-//   },
-//   {
-//     country: "USA",
-//     hotel: 'New World Hotel'
-//   },
-// ]
+const cardItem = [
+  {
+    img: "https://i.ibb.co/C9PRsHT/barcelona-min.jpg",
+    title: "BARCELONA",
+    price: "$1000",
+    linkName: "learn more"
+  },
+  {
+    img: "https://i.ibb.co/y8DDtYp/goa-min.jpg",
+    title: "GOA",
+    price: "$1500",
+    linkName: "learn more"
+  },
+  {
+    img: "https://i.ibb.co/LY2NJtR/paris-min.jpg",
+    title: "PARIS",
+    price: "$1600",
+    linkName: "learn more"
+  }
+]
 
-export { country, countryHotel, countryDecsription, accordion }
+export { country, countryHotel, countryDecsription, accordion, getDate, cardInfo, sliderList, cardItem }

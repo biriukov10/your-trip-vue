@@ -28,30 +28,12 @@
 
 
 <script>
+import { cardItem } from "../services/CountryService";
 new WOW().init();
 export default {
   data() {
     return {
-      cardItem: [
-        {
-          img: "https://i.ibb.co/C9PRsHT/barcelona-min.jpg",
-          title: "BARCELONA",
-          price: "$1000",
-          linkName: "learn more"
-        },
-        {
-          img: "https://i.ibb.co/y8DDtYp/goa-min.jpg",
-          title: "GOA",
-          price: "$1500",
-          linkName: "learn more"
-        },
-        {
-          img: "https://i.ibb.co/LY2NJtR/paris-min.jpg",
-          title: "PARIS",
-          price: "$1600",
-          linkName: "learn more"
-        }
-      ]
+      cardItem
     };
   }
 };

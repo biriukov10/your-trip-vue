@@ -11,7 +11,7 @@
                 <br />feb
               </div>
               <div class="ba-blog-date-aftor">
-                <a href="#" class="ba-blog-date-aftor__link">{{item.link}}</a>
+                <a href="#" target="_blank" class="ba-blog-date-aftor__link">{{item.link}}</a>
                 <span class="ba-blog-date-aftor__text">Posted by Admin</span>
               </div>
             </div>
@@ -22,7 +22,7 @@
               <br />
               <br />Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
             </p>
-            <a href="#" class="ba-blog-posts__link">LEARN MORE</a>
+            <a href="#" target="_blank" class="ba-blog-posts__link">LEARN MORE</a>
           </div>
         </div>
         <div class="ba-col-4 ba-col-sm-12">
@@ -40,25 +40,12 @@
 </template>
  
 <script>
-import { accordion } from "../services/CountryService";
+import { accordion, getDate } from "../services/CountryService";
 new WOW().init();
 export default {
   data() {
     return {
-      getDate: [
-        {
-          date: 15,
-          link: "uamnibh Edet Mertolo numi",
-          url: "https://i.ibb.co/rGZsC8R/church-min.jpg",
-          title: "Church"
-        },
-        {
-          date: 17,
-          link: "Erh Emertlo numolo",
-          url: "https://i.ibb.co/xSWg9sF/resort.jpg",
-          title: "Hotel"
-        }
-      ],
+      getDate,
       accordion
     };
   }

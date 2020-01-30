@@ -4,7 +4,11 @@
       <div class="ba-row">
         <div class="ba-col-8 ba-col-sm-12">
           <h1 class="ba-offers__title">Special offers</h1>
-          <div class="ba-offers-special" v-for="(card, index) in sectionCard" :key="index">
+          <div
+            class="ba-offers-special wow fadeInLeft"
+            v-for="(card, index) in sectionCard"
+            :key="index"
+          >
             <img :src="card.link" alt="Barcelona" class="ba-offers-special__image" />
             <div class="ba-offers-info">
               <h2 class="ba-offers-info__title">{{ card.title }}</h2>
@@ -44,6 +48,7 @@
 
 <script>
 import { country, countryDecsription } from "../services/CountryService";
+new WOW().init();
 
 export default {
   data() {

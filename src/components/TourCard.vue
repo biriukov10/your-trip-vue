@@ -25,84 +25,12 @@
 </template>
 
 <script>
+import { cardInfo } from "../services/CountryService";
 new WOW().init();
 export default {
   data() {
     return {
-      cardInfo: [
-        {
-          title: "NEW ZEALAND",
-          price: "$ 1.200",
-          link: "learn more",
-          url: "https://i.ibb.co/djtN7ZS/newzeland-min.jpg",
-          text:
-            "New Zealand is famous for its gorgeous nature - geysers, mountains and lakes, forests and grottoes, glaciers and beaches. Widely developed environmental movement allows you to keep all this splendor in almost pristine condition, even in areas of large cities"
-        },
-        {
-          title: "GOA",
-          price: "$ 1.500",
-          link: "learn more",
-          url: "https://i.ibb.co/y8DDtYp/goa-min.jpg",
-          text:
-            "Goa is the country's main resort, as it often happens, completely unlike the rest of India. The coast stretches here for 110 km, forming 40 beautiful beaches. The state is divided into the Northern and Southern parts, the border between which is Fort Aguada."
-        },
-        {
-          title: "FRANCE",
-          price: "$ 1.600",
-          link: "learn more",
-          url: "https://i.ibb.co/LY2NJtR/paris-min.jpg",
-          text:
-            "Elegant beauty France is a vacation with charm: a rich “excursion”, relaxation on the sophisticated Cote d'Azur, famous museums, gastronomic provinces and castles of the Loire. Cuisine, wine and ski resorts - all about France: tours, prices, hotels and attractions"
-        },
-        {
-          title: "CANADA",
-          price: "$ 2.000",
-          link: "learn more",
-          url: "https://i.ibb.co/Bgg6p3v/canada-min.jpg",
-          text:
-            "Canada includes ski resorts, English and French classes, and noteworthy national parks. The capital with dignity - Ottawa, colorful Quebec and framed by the mountains of Vancouver, maples and hockey - all about Canada: visa and cities, maps and photos"
-        },
-        {
-          title: "TURKEY",
-          price: "$ 1.500",
-          link: "learn more",
-          url: "https://i.ibb.co/ZJCdgs0/turkey-min.jpg",
-          text:
-            "Turkey is not only the excellent beaches of the four seas, but also the magnificent Istanbul with the Blue Mosque and Topkapi Palace, the thermal springs of Yalova and the snow-white Pamukkale, the Cappadocian monasteries, skiing and great shopping"
-        },
-        {
-          title: "EGYPT",
-          price: "$ 1.500",
-          link: "learn more",
-          url: "https://i.ibb.co/kybmpFW/egypt-min.jpg",
-          text:
-            "The advantages of Egypt are known to everyone: a quality beach holiday all year round in the Mediterranean and Red Seas, diluted with excellent diving, plus a varied “excursion”: the pyramids, the Sphinx and Luxor. Everything about Egypt from Hurghada to Sharm"
-        },
-        {
-          title: "JAPAN",
-          price: "$ 1.000",
-          link: "learn more",
-          url: "https://i.ibb.co/3zbzBkC/japan-min.jpg",
-          text:
-            "Country of the rising sun Japan - a storehouse of sophisticated exotic. The ultramodern Tokyo and picturesque province, the Fuji snow cap and sakura in bloom, the magnificent beaches of the Okinawa islands and the ancient Shinto monuments."
-        },
-        {
-          title: "BRAZIL",
-          price: "$ 1.700",
-          link: "learn more",
-          url: "https://i.ibb.co/wdmj0zh/brazil-min.jpg",
-          text:
-            "Brazil is not only the crazy carnival in Rio de Janeiro, the impenetrable jungle of the Amazon and the thundering cascades of Iguazu, but also the famous beaches of Ipanema and Copacabana, excellent hotels, excellent cuisine and great football."
-        },
-        {
-          title: "SPAIN",
-          price: "$ 1.500",
-          link: "learn more",
-          url: "https://i.ibb.co/C9PRsHT/barcelona-min.jpg",
-          text:
-            "Proud, narcissistic, explosive, full of geniuses and mediocrity, falling in love and falling in love, tiring and tired ... all this is about Barcelona - one of the most beautiful cities not only in Europe, but all over the world. When Muscovites are asked what the capital lacks, 9 out of 10 answer - the seas"
-        }
-      ]
+      cardInfo
     };
   }
 };

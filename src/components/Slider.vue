@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { sliderList } from "../services/CountryService";
 export default {
   data() {
     return {
@@ -42,23 +43,7 @@ export default {
       // Шаг одного слайда = его длина
       sliderOffsetStep: 0,
       // Список изображений
-      sliderList: [
-        {
-          img: "https://i.ibb.co/PtTs682/london-Slide-min.jpg",
-          title: "LONDON",
-          price: "$ 1000"
-        },
-        {
-          img: "https://i.ibb.co/25T3szC/maldives-Slide-min.jpg",
-          title: "Maldives",
-          price: "$ 2000"
-        },
-        {
-          img: "https://i.ibb.co/9N1Ry1S/venice-Slide-min.jpg",
-          title: "Venice",
-          price: "$1600"
-        }
-      ]
+      sliderList
     };
   },
   methods: {

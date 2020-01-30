@@ -21,6 +21,7 @@ $primary-width: 100%;
 .ba-header-logo {
   position: relative;
   overflow: hidden;
+  height: 250px;
 
   &::before {
     content: "";
