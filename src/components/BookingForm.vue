@@ -150,7 +150,7 @@
       <small
         class="ba-form-area__invalid invalid"
         v-else-if="$v.text.$dirty && !$v.text.minLength"
-      >Name must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
+      >Message must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
     </div>
     <div class="ba-form-link ba-form-link--btn">
       <button type="submit" @click="onSubmit" class="ba-form-link__item">Submit</button>

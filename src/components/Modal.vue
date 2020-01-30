@@ -6,7 +6,7 @@
           <h1 class="modal-title">Hello, {{ name }}</h1>
           <slot name="text">Your application is completed, expect a response</slot>
         </div>
-        <button class="modal-default-button" @click="$emit('close')">X</button>
+        <button type="button" class="modal-default-button" @click="$emit('close')">X</button>
       </div>
     </div>
   </transition>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ["name", "showModal"],
+  props: ["name"],
   data() {
     return {};
   },

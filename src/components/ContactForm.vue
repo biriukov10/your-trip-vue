@@ -43,14 +43,14 @@
         <small
           class="ba-contact-form-area__invalid invalid"
           v-else-if="$v.text.$dirty && !$v.text.minLength"
-        >Name must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
+        >Message must be {{ $v.text.$params.minLength.min }} characters. {{ text.length }}</small>
       </div>
       <div class="ba-contact-form-btn">
         <button @click="resetForm" class="ba-contact-form-btn__item" type="reset">Clear</button>
         <button @click="onSubmit" class="ba-contact-form-btn__item" type="submit">Submit</button>
       </div>
     </form>
-    <modal-window class="ba-modal" v-if="showModal" :name="this.name" @close="showModal = false"></modal-window>
+    <modal-window class="ba-modal" v-if="showModal" :name="this.name" @close="closeModal()"></modal-window>
   </div>
 </template>
 
@@ -60,12 +60,15 @@ import Modal from "./Modal";
 
 export default {
   name: "formComponent",
+
+  components: {
+    modalWindow: Modal
+  },
   data() {
     return {
       email: "",
       text: "",
       name: "",
-      modalName: "",
       showModal: false
     };
   },
@@ -75,6 +78,11 @@ export default {
   },
   methods: {
     // clear input
+    closeModal() {
+      this.showModal = false;
+      this.resetForm();
+      console.log("asd");
+    },
     resetForm() {
       this.email = this.text = this.name = "";
     },
@@ -83,38 +91,31 @@ export default {
         this.$v.$touch();
         return;
       }
-      const formData = {
-        email: this.email,
-        text: this.text,
-        name: this.name
-      };
-      this.modalName = this.name;
+      // const formData = {
+      //   email: this.email,
+      //   text: this.text,
+      //   name: this.name
+      // };
+      // this.modalName = this.name;
       this.showModal = true;
-      setTimeout(() => {
-        // this.showModal = true;
-        this.resetForm();
-      }, 500);
-      console.log(formData);
+      // setTimeout(() => {
+      //   // this.showModal = true;
+      //   this.resetForm();
+      // }, 500);
+      // console.log(formData);
     }
   },
   mounted() {
     // по нажатию на esc закрыть окно
-    let thisModal = this;
-    window.addEventListener("keydown", function(e) {
-      if (e.keyCode == 27) {
-        thisModal.showModal = false;
-      }
+    window.addEventListener("keydown", e => {
+      if (e.keyCode == 27) this.closeModal();
     });
-    // по клику вне модалки закрыть её
-    window.addEventListener("click", function(e) {
+
+// по клику вне модалки закрыть её
+    window.addEventListener("click", e => {
       let modal = document.querySelector(".modal-mask");
-      if (e.target == modal) {
-        thisModal.showModal = false;
-      }
+      if (e.target == modal) this.closeModal();
     });
-  },
-  components: {
-    modalWindow: Modal
   }
 };
 </script>
