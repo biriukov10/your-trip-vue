@@ -81,7 +81,6 @@ export default {
     closeModal() {
       this.showModal = false;
       this.resetForm();
-      console.log("asd");
     },
     resetForm() {
       this.email = this.text = this.name = "";
@@ -91,18 +90,13 @@ export default {
         this.$v.$touch();
         return;
       }
-      // const formData = {
-      //   email: this.email,
-      //   text: this.text,
-      //   name: this.name
-      // };
-      // this.modalName = this.name;
+      const formData = {
+        email: this.email,
+        text: this.text,
+        name: this.name
+      };
       this.showModal = true;
-      // setTimeout(() => {
-      //   // this.showModal = true;
-      //   this.resetForm();
-      // }, 500);
-      // console.log(formData);
+      console.log(formData);
     }
   },
   mounted() {
@@ -111,7 +105,7 @@ export default {
       if (e.keyCode == 27) this.closeModal();
     });
 
-// по клику вне модалки закрыть её
+    // по клику вне модалки закрыть её
     window.addEventListener("click", e => {
       let modal = document.querySelector(".modal-mask");
       if (e.target == modal) this.closeModal();

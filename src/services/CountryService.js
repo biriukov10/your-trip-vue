@@ -403,4 +403,27 @@ const cardItem = [
   }
 ]
 
-export { country, countryHotel, countryDecsription, accordion, getDate, cardInfo, sliderList, cardItem }
+const menuItem = [
+  {
+    name: "ABOUT",
+    link: "/"
+  },
+
+  {
+    name: "TOURS",
+    link: "/tours"
+  },
+  {
+    name: "OFFERS",
+    link: "/offers"
+  },
+  {
+    name: "BLOG",
+    link: "/blog"
+  },
+  {
+    name: "CONTACTS",
+    link: "/contacts"
+  }
+]
+export { country, countryHotel, countryDecsription, accordion, getDate, cardInfo, sliderList, cardItem, menuItem }

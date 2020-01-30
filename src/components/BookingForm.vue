@@ -49,7 +49,7 @@
           v-model="dateIn"
           type="date"
           id="dateOne"
-          value="2020-01-29"
+          value="2020-01-30"
         />
       </div>
       <div class="ba-form-calendar-wrapp">
@@ -155,7 +155,7 @@
     <div class="ba-form-link ba-form-link--btn">
       <button type="submit" @click="onSubmit" class="ba-form-link__item">Submit</button>
     </div>
-    <modal-window :name="this.name" class="ba-modal" v-if="showModal" @close="showModal = false"></modal-window>
+    <modal-window :name="this.name" class="ba-modal" v-if="showModal" @close="closeModal()"></modal-window>
   </form>
 </template>
 
@@ -165,6 +165,9 @@ import { email, required, minLength } from "vuelidate/lib/validators";
 import Modal from "./Modal";
 
 export default {
+  components: {
+    modalWindow: Modal
+  },
   data() {
     return {
       countryHotel,
@@ -192,10 +195,13 @@ export default {
   },
   methods: {
     resetForm() {
-      this.email = this.text = this.hotel = this.dateIn = this.dateOut = this.selectedValue = this.cheap = this.standart = this.lux = this.aldults = this.children = this.rooms =
+      this.name = this.email = this.text = this.hotel = this.dateIn = this.dateOut = this.selectedValue = this.cheap = this.standart = this.lux = this.aldults = this.children = this.rooms =
         "";
     },
-
+    closeModal() {
+      this.showModal = false;
+      this.resetForm();
+    },
     onSubmit() {
       if (this.$v.$invalid) {
         this.$v.$touch();
@@ -216,31 +222,21 @@ export default {
         children: this.children,
         rooms: this.rooms
       };
-      setTimeout(() => {
-        this.showModal = true;
-        this.resetForm();
-      }, 500);
+      this.showModal = true;
       console.log(formData);
     }
   },
   mounted() {
     // по нажатию на esc закрыть окно
-    let thisModal = this;
-    window.addEventListener("keydown", function(e) {
-      if (e.keyCode == 27) {
-        thisModal.showModal = false;
-      }
+    window.addEventListener("keydown", e => {
+      if (e.keyCode == 27) this.closeModal();
     });
+
     // по клику вне модалки закрыть её
-    window.addEventListener("click", function(e) {
+    window.addEventListener("click", e => {
       let modal = document.querySelector(".modal-mask");
-      if (e.target == modal) {
-        thisModal.showModal = false;
-      }
+      if (e.target == modal) this.closeModal();
     });
-  },
-  components: {
-    modalWindow: Modal
   }
 };
 </script>

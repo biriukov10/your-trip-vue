@@ -20,33 +20,12 @@
 </template>
 
 <script>
+import { menuItem } from "../services/CountryService";
 export default {
   data() {
     return {
       menuShow: false,
-      menuItem: [
-        {
-          name: "ABOUT",
-          link: "/"
-        },
-
-        {
-          name: "TOURS",
-          link: "/tours"
-        },
-        {
-          name: "OFFERS",
-          link: "/offers"
-        },
-        {
-          name: "BLOG",
-          link: "/blog"
-        },
-        {
-          name: "CONTACTS",
-          link: "/contacts"
-        }
-      ]
+      menuItem
     };
   }
 };
